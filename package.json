@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/pact-foundation/pact-js-core.git"
+    "url": "git://github.com/pact-foundation/pact-cli.git"
   },
   "keywords": [
     "pact",
@@ -47,7 +47,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pact-foundation/pact-js-core/issues"
+    "url": "https://github.com/pact-foundation/pact-cli/issues"
   },
   "publishConfig": {
     "access": "public"

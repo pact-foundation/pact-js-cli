@@ -19,7 +19,7 @@ _This checklist is optional, but studies show that people who have followed it c
 
 Before making a feature request, I have: 
 
-- [ ] [Searched the issues to check that this feature hasn't been requested before](https://github.com/pact-foundation/pact-js-core/issues?q=is%3Aissue)
+- [ ] [Searched the issues to check that this feature hasn't been requested before](https://github.com/pact-foundation/pact-cli/issues?q=is%3Aissue)
 - [ ] Checked the documentation to see if it is possible to do what I want already 
 
 ### Feature description

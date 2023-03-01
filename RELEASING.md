@@ -36,7 +36,7 @@ dependencies in `scripts/ci/lib`.
 ## Kicking off a release
 
 You must be able to create a github access token with `repo` scope to the
-pact-js-core repository.
+pact-cli repository.
 
 - Set an environment variable `GITHUB_ACCESS_TOKEN_FOR_PF_RELEASES` to this token.
 - Make sure master contains the code you want to release
@@ -67,11 +67,11 @@ npm run release # This tags, commits and updates the changelog only
 Depending on the nature of the new commits to master after the release, you
 may need to rebase them on top of the tagged release commit and force push.
 
-## Releasing Pact Node Manually
+## Releasing Pact CLI Manually
 
-If any changes needs to be released, let it be dependencies or code, you must have access to push directly to master on the pact-js-core repo, then follow these steps:
+If any changes needs to be released, let it be dependencies or code, you must have access to push directly to master on the pact-cli repo, then follow these steps:
 
- - Run `npm ci --ignore-scripts` to confirm that the dependencies are appropriately configured.
+ - Run `npm ci` to confirm that the dependencies are appropriately configured.
  - Run `npm test` first to make sure all tests pass. This will also build and download the appropriate checksums.
  - Run `npm run release` to generate the changelog and create a tagged commit
  - Run `npm publish --access public --tag latest` to publish to npm.
