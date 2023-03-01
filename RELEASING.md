@@ -39,10 +39,10 @@ You must be able to create a github access token with `repo` scope to the
 pact-cli repository.
 
 - Set an environment variable `GITHUB_ACCESS_TOKEN_FOR_PF_RELEASES` to this token.
-- Make sure master contains the code you want to release
+- Make sure main contains the code you want to release
 - Run `scripts/trigger-release.sh`
 
-Then wait for github to do its magic. It will release the current head of master.
+Then wait for github to do its magic. It will release the current head of main.
 
 Note that the release script refuses to publish anything that wouldn't
 produce a changelog. Please make sure your commits follow the guidelines in
@@ -54,9 +54,9 @@ The publish is the second to last step, so if the release fails, you don't
 need to do any rollbacks.
 
 However, there is a potential for the push to fail _after_ a publish if there
-are new commits to master since the release started. This is unlikely with
+are new commits to main since the release started. This is unlikely with
 the current commit frequency, but could still happen. Check the logs to
-determine if npm has a version that doesn't exist in the master branch.
+determine if npm has a version that doesn't exist in the main branch.
 
 If this has happened, you will need to manually put the release commit in.
 
@@ -64,12 +64,12 @@ If this has happened, you will need to manually put the release commit in.
 npm run release # This tags, commits and updates the changelog only
 ```
 
-Depending on the nature of the new commits to master after the release, you
+Depending on the nature of the new commits to main after the release, you
 may need to rebase them on top of the tagged release commit and force push.
 
 ## Releasing Pact CLI Manually
 
-If any changes needs to be released, let it be dependencies or code, you must have access to push directly to master on the pact-cli repo, then follow these steps:
+If any changes needs to be released, let it be dependencies or code, you must have access to push directly to main on the pact-cli repo, then follow these steps:
 
  - Run `npm ci` to confirm that the dependencies are appropriately configured.
  - Run `npm test` first to make sure all tests pass. This will also build and download the appropriate checksums.

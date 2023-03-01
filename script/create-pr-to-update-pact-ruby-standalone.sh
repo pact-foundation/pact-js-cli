@@ -9,9 +9,9 @@ TYPE=${2:-fix}
 DASHERISED_VERSION=$(echo "${STANDALONE_VERSION}" | sed 's/\./\-/g')
 BRANCH_NAME="chore/upgrade-to-pact-ruby-standalone-${DASHERISED_VERSION}"
 
-git checkout master
+git checkout main
 git checkout standalone/install.ts
-git pull origin master
+git pull origin main
 
 git checkout -b ${BRANCH_NAME}
 
@@ -24,4 +24,4 @@ git push --set-upstream origin ${BRANCH_NAME}
 
 hub pull-request --message "${TYPE}: update standalone to ${STANDALONE_VERSION}"
 
-git checkout master
+git checkout main

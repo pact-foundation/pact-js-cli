@@ -46,8 +46,6 @@ _How can someone else reproduce this bug?_
 
 _For extra bonus points and internet karma, provide a repository, gist or reproducible code snippet so that we can test the problem._
 
-_We recommend forking the project and modifying a relevant example [in the examples folder](https://github.com/pact-foundation/pact-js/blob/master/examples)_
-
 ### Relevant log files
 
 _Please ensure you set logging to `DEBUG` and attach any relevant log files here (or link to a gist)._
