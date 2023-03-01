@@ -83,7 +83,7 @@
     "typescript": "4.7.4"
   },
   "scripts": {
-    "clean": "rimraf '{src,test,bin,standalone}/**/*.{js,map,d.ts}' 'package.zip' '.tmp' 'tmp'",
+    "clean": "rimraf '{src,bin,standalone}/**/*.{js,map,d.ts}' 'package.zip' '.tmp' 'tmp'",
     "lint": "eslint . --ext .ts --config .eslintrc",
     "lint:fix": "npm run lint -- --fix",
     "prebuild": "npm run clean && bash script/download-libs.sh",
