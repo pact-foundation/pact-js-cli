@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
+    "resolveJsonModule": true,
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitAny": true,

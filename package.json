@@ -1,9 +1,9 @@
 {
-  "name": "@pact-foundation/pact-core",
+  "name": "@pact-foundation/pact-cli",
   "version": "13.13.3",
-  "description": "Core of @pact-foundation/pact. You almost certainly don't want to depend on this directly.",
+  "description": "Broker CLI for @pact-foundation/pact",
   "main": "src/index.js",
-  "homepage": "https://github.com/pact-foundation/pact-js-core#readme",
+  "homepage": "https://github.com/pact-foundation/pact-cli#readme",
   "types": "src/index.d.ts",
   "bin": {
     "pact": "bin/pact.js",
@@ -25,7 +25,7 @@
     "arm64"
   ],
   "engine": {
-    "node": ">=6"
+    "node": ">=14"
   },
   "repository": {
     "type": "git",
@@ -40,8 +40,9 @@
     "provider",
     "verifier"
   ],
-  "author": "Matt Fellows <m@onegeek.com.au> (http://www.onegeek.com.au)",
+  "author": "Timothy Jones <timothy.l.jones@gmail.com>",
   "contributors": [
+    "Matt Fellows <m@onegeek.com.au> (http://www.onegeek.com.au)",
     "Michel Boudreau <michelboudreau@gmail.com> (codinghitchhiker.com)"
   ],
   "license": "MIT",
@@ -52,29 +53,20 @@
     "access": "public"
   },
   "dependencies": {
-    "@types/needle": "2.5.2",
-    "bindings": "^1.5.0",
     "chalk": "4.1.2",
-    "check-types": "7.3.0",
-    "cross-spawn": "7.0.3",
     "mkdirp": "1.0.0",
     "needle": "2.8.0",
     "node-addon-api": "^4.2.0",
     "pino": "^8.7.0",
     "pino-pretty": "^9.1.1",
     "promise-timeout": "1.3.0",
-    "rimraf": "2.6.2",
     "underscore": "1.12.1",
     "unixify": "1.0.0"
   },
   "devDependencies": {
-    "@grpc/grpc-js": "^1.8.0",
-    "@grpc/proto-loader": "^0.7.3",
     "@pact-foundation/pact-js-prettier-config": "^1.0.0",
     "@tsconfig/node14": "^1.0.3",
     "@types/basic-auth": "^1.1.2",
-    "@types/bindings": "^1.5.1",
-    "@types/chai": "4.1.2",
     "@types/chai-as-promised": "7.1.0",
     "@types/check-types": "^7.3.2",
     "@types/cors": "^2.8.6",
@@ -85,7 +77,6 @@
     "@types/mocha": "9.0.0",
     "@types/node": "^18.11.10",
     "@types/promise-timeout": "^1.3.0",
-    "@types/rimraf": "^2.0.2",
     "@types/sinon": "^9.0.11",
     "@types/tar": "^4.0.3",
     "@types/underscore": "1.8.7",
@@ -116,6 +107,7 @@
     "nodemon": "^2.0.4",
     "prettier": "^2.3.0",
     "protobufjs": "^6.11.2",
+    "rimraf": "^4.1.2",
     "sinon": "9.2.4",
     "snyk": "^1.747.0",
     "standard-version": "^9.1.0",
@@ -130,13 +122,11 @@
     "build": "tsc --project tsconfig.build.json",
     "prerelease": "npm run snyk-protect",
     "release": "standard-version",
-    "test": "cross-env LOGLEVEL=debug PACT_DO_NOT_TRACK=true mocha \"{src,test,bin,standalone}/**/*.spec.ts\"",
+    "test": "cross-env LOGLEVEL=debug PACT_DO_NOT_TRACK=true mocha \"{src,standalone}/**/*.spec.ts\"",
     "snyk-protect": "snyk protect",
     "format:base": "prettier --parser typescript",
     "format:check": "npm run format:base -- --list-different \"{src,standalone,bin,test}/**/*.{ts,tsx}\"",
-    "format:fix": "npm run format:base -- --write \"{src,standalone,bin,test}/**/*.{ts,tsx}\"",
-    "postinstall": "npm run native",
-    "native": "node-gyp rebuild -v"
+    "format:fix": "npm run format:base -- --write \"{src,standalone,bin,test}/**/*.{ts,tsx}\""
   },
   "prettier": "@pact-foundation/pact-js-prettier-config",
   "standard-version": {
