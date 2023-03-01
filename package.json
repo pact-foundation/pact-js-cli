@@ -59,7 +59,7 @@
     "@pact-foundation/pact-js-prettier-config": "^1.0.0",
     "@tsconfig/node14": "^1.0.3",
     "@types/chai-as-promised": "7.1.0",
-    "@types/mocha": "9.0.0",
+    "@types/mocha": "^9.0.0",
     "@types/node": "^18.11.10",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
