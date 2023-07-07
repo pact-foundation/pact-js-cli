@@ -34,7 +34,7 @@ BUILD_TEST_TASK_TEMPLATE: &BUILD_TEST_TASK_TEMPLATE
   build_script:
     - node --version
     - npx --yes absolute-version
-    - scripts/ci/build-and-test.sh
+    - script/ci/build-and-test.sh
 
 linux_arm_task: 
   arm_container:
