@@ -24,8 +24,8 @@
     "ia32",
     "arm64"
   ],
-  "engine": {
-    "node": ">=14"
+  "engines": {
+    "node": ">=16"
   },
   "repository": {
     "type": "git",
