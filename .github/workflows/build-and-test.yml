@@ -10,8 +10,10 @@ jobs:
   build-and-test-osx:
     runs-on: macos-latest
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [16.x,18.x,20.x]
+        os: [macos-latest,windows-latest,ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v3
@@ -20,41 +22,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: script/ci/build-and-test.sh
+        if: runner.os != 'Windows'
         env:
           NODE_VERSION: ${{ matrix.node-version }}
           PACT_BROKER_FEATURES: publish_pacts_using_old_api
-
-  build-and-test-ubuntu:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
       - run: script/ci/build-and-test.sh
-        env:
-          NODE_VERSION: ${{ matrix.node-version }}
-          PACT_BROKER_FEATURES: publish_pacts_using_old_api
-
-  build-and-test-windows:
-    runs-on: windows-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: bash script/ci/build-and-test.sh
-        shell: bash
+        if: runner.os == 'Windows'
         env:
           NODE_VERSION: ${{ matrix.node-version }}
           # The windows build agent has trouble unpacking the tar for

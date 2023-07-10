@@ -79,3 +79,11 @@ test
 
 # release scripts
 script
+
+# Additional files caught during cleanup
+test.js
+tsconfig.build.json
+tsconfig.json
+.synk
+.gitattributes
+RELEASING.md

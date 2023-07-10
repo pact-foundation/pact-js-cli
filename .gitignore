@@ -44,7 +44,9 @@ src/**/**.d.ts
 test/**/**.d.ts
 bin/**/**.d.ts
 **/*.d.ts
-*.js
+bin/*.js
+src/index.js
+src/pact-*.js
 !test.js
 
 *.js.map
@@ -53,12 +55,14 @@ bin/**/**.d.ts
 ts-node-*
 
 # pact standalone binaries
-standalone/*
 !standalone/__fixtures__/.keep
-!standalone/*.ts
 standalone/*.d.ts
-ffi/*
-!ffi/README.md
+standalone/*.js
+standalone/*.js.map
+standalone/darwin*
+standalone/linux*
+standalone/windows*
+standalone/README.md
 
 # Folders created during testing
 log
