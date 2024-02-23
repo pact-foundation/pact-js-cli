@@ -84,6 +84,9 @@ script
 test.js
 tsconfig.build.json
 tsconfig.json
-.synk
-.gitattributes
-RELEASING.md
+
+# pact standalone binaries
+standalone/*
+!standalone/*.js
+!standalone/*.checksum
+!standalone/*.d.ts
