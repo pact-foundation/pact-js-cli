@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as chai from 'chai';
+import install from '../standalone/install';
 import pactEnvironment from './pact-environment';
 import { PactStandalone, standalone } from './pact-standalone';
 
@@ -13,6 +14,9 @@ describe('Pact Standalone', function forMocha() {
   this.timeout(600000);
 
   let pact: PactStandalone;
+
+  // reinstall the correct binary for the system for all other tests that might use it.
+  after(() => install());
 
   it('should return an object with cwd, file and fullPath properties that is platform specific', () => {
     pact = standalone();
@@ -51,6 +55,7 @@ describe('Pact Standalone', function forMocha() {
 
     tests.forEach(([platform, arch]) => {
       describe(`${platform} ${arch}`, () => {
+        before(() => install(platform, arch));
         beforeEach(() => {
           pact = standalone(platform, arch);
         });
