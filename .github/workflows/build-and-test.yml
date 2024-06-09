@@ -28,6 +28,7 @@ jobs:
           PACT_BROKER_FEATURES: publish_pacts_using_old_api
       - run: script/ci/download-standalone-and-test.sh
         if: runner.os == 'Windows'
+        shell: bash
         env:
           NODE_VERSION: ${{ matrix.node-version }}
           # The windows build agent has trouble unpacking the tar for
