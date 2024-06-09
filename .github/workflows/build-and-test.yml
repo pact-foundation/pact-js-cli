@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-test-osx:
-    runs-on: macos-latest
+  build-and-test:
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: script/ci/build-and-test.sh
+      - run: script/ci/download-standalone-and-test.sh
         if: runner.os != 'Windows'
         env:
           NODE_VERSION: ${{ matrix.node-version }}
