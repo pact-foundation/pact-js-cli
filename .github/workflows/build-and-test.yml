@@ -34,12 +34,7 @@ jobs:
         env:
           NODE_VERSION: ${{ matrix.node-version }}
           PACT_BROKER_FEATURES: publish_pacts_using_old_api
-      - run: curl --version
-        if: runner.os == 'Windows'
-        shell: bash
-      - run: curl --output foo --write-out "%{http_code}" --location https://example.com
-        if: runner.os == 'Windows'
-        shell: bash
+
       - run: script/ci/download-standalone-and-test.sh
         if: runner.os == 'Windows'
         shell: bash
