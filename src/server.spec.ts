@@ -1,7 +1,6 @@
 import chai = require('chai');
 import chaiAsPromised = require('chai-as-promised');
 import fs = require('fs');
-import util = require('util');
 import path = require('path');
 import mkdirp = require('mkdirp');
 import rimraf = require('rimraf');
@@ -9,7 +8,7 @@ import serverFactory, { ServerOptions } from './server';
 
 chai.use(chaiAsPromised);
 const { expect } = chai;
-const rm = util.promisify(rimraf);
+const rm = rimraf.rimraf;
 
 describe('Server Spec', () => {
   let server: any;
