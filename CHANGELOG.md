@@ -1,6 +1,232 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [14.3.7](https://github.com/pact-foundation/pact-js-core/compare/v14.3.6...v14.3.7) (2024-05-29)
+
+
+### Fixes and Improvements
+
+* set process.stdout._handle.setBlocking(true) on ffi init ([#510](https://github.com/pact-foundation/pact-js-core/issues/510)) ([af76abd](https://github.com/pact-foundation/pact-js-core/commit/af76abd64b034d2c0e1ffdbe795d68ed8d791b1e))
+* shell escaping ([#511](https://github.com/pact-foundation/pact-js-core/issues/511)) ([3829d20](https://github.com/pact-foundation/pact-js-core/commit/3829d2024b6f8cb9790899ae068d14e74f9837d0))
+* update standalone to 2.4.4 ([e7872d2](https://github.com/pact-foundation/pact-js-core/commit/e7872d2cfcc107313b7bedc57291adc041fe68c3))
+
+## [14.3.6](https://github.com/pact-foundation/pact-js-core/compare/v14.3.5...v14.3.6) (2024-05-09)
+
+
+### Fixes and Improvements
+
+* update pact-ffi to 0.4.20 ([7a91725](https://github.com/pact-foundation/pact-js-core/commit/7a9172536393ac667b067fb57ba3b73363d9c87b))
+
+## [14.3.5](https://github.com/pact-foundation/pact-js-core/compare/v14.3.4...v14.3.5) (2024-05-08)
+
+
+### Fixes and Improvements
+
+* node doesn't run .bat files on windows ([#504](https://github.com/pact-foundation/pact-js-core/issues/504)) ([4f125b3](https://github.com/pact-foundation/pact-js-core/commit/4f125b32bc3bdfc5e9bfbbef4e0302073783dcf1))
+
+## [14.3.4](https://github.com/pact-foundation/pact-js-core/compare/v14.3.3...v14.3.4) (2024-04-23)
+
+
+### Fixes and Improvements
+
+* normalise PREBUILD_NAME to node.napi ([3812b0d](https://github.com/pact-foundation/pact-js-core/commit/3812b0def2559492c0ad4608db062e7c53526fec))
+* upgrade to latest ffi 0.4.19 ([7a7d9b0](https://github.com/pact-foundation/pact-js-core/commit/7a7d9b0af6e5d9bfd2356f21808c48a407cf8a03))
+
+## [14.3.3](https://github.com/pact-foundation/pact-js-core/compare/v14.3.2...v14.3.3) (2024-03-25)
+
+
+### Fixes and Improvements
+
+* export pactffiMessageGivenWithParams ([9b77d8c](https://github.com/pact-foundation/pact-js-core/commit/9b77d8cfa0897661d4f73a8d7483ff9bacff7e66))
+
+## [14.3.2](https://github.com/pact-foundation/pact-js-core/compare/v14.3.1...v14.3.2) (2024-03-14)
+
+
+### Fixes and Improvements
+
+* prevent node-gyp rebuild on fresh install ([c24c638](https://github.com/pact-foundation/pact-js-core/commit/c24c638bc86cab98793ace6b5488de25ca242c85)), closes [/www.linen.dev/s/pact-foundation/t/16633868/hell-all-quick-question-in-the-migration-guide-for-v12-it-s-#100081d7-2fee-4420-8eac-d55858dcc483](https://github.com/pact-foundation//www.linen.dev/s/pact-foundation/t/16633868/hell-all-quick-question-in-the-migration-guide-for-v12-it-s-/issues/100081d7-2fee-4420-8eac-d55858dcc483) [/github.com/npm/cli/issues/5234#issuecomment-1291139150](https://github.com/pact-foundation//github.com/npm/cli/issues/5234/issues/issuecomment-1291139150)
+
+## [14.3.1](https://github.com/pact-foundation/pact-js-core/compare/v14.3.0...v14.3.1) (2024-03-13)
+
+
+### Fixes and Improvements
+
+* 🐛 avoid node-gyp rebuild install script ([f5f5e7c](https://github.com/pact-foundation/pact-js-core/commit/f5f5e7cc387a7e694552fd5f69ba9c83ba490006))
+* update standalone to 2.4.2 ([#492](https://github.com/pact-foundation/pact-js-core/issues/492)) ([fcccc34](https://github.com/pact-foundation/pact-js-core/commit/fcccc34cf0891b277c3cd7053d4d5262ee23eac5))
+
+## [14.3.0](https://github.com/pact-foundation/pact-js-core/compare/v14.2.0...v14.3.0) (2024-02-28)
+
+
+### Features
+
+* add pactffi_message_with_metadata_v2 ([#493](https://github.com/pact-foundation/pact-js-core/issues/493)) ([613b7bd](https://github.com/pact-foundation/pact-js-core/commit/613b7bd25e8ad2d673961e4c06be83d10ceb5b7b))
+
+## [14.2.0](https://github.com/pact-foundation/pact-js-core/compare/v14.1.4...v14.2.0) (2024-02-19)
+
+
+### Features
+
+* support status code matcher via pactffi_response_status_v2 ([#486](https://github.com/pact-foundation/pact-js-core/issues/486)) ([0edd3ac](https://github.com/pact-foundation/pact-js-core/commit/0edd3aca29fad38211a87b44d187c5851814876d))
+
+## [14.1.4](https://github.com/pact-foundation/pact-js-core/compare/v14.1.3...v14.1.4) (2024-02-13)
+
+
+### Fixes and Improvements
+
+* update standalone to 2.4.1 ([8dfad86](https://github.com/pact-foundation/pact-js-core/commit/8dfad86f7b00c890e798eb168fb0d4244101c5a8))
+
+## [14.1.3](https://github.com/pact-foundation/pact-js-core/compare/v14.1.2...v14.1.3) (2024-02-12)
+
+
+### Fixes and Improvements
+
+* update pact-ffi to 0.4.16 ([502f354](https://github.com/pact-foundation/pact-js-core/commit/502f354290b872a6ca2830d5f880560aa0401df1))
+* update standalone to 2.4.0 ([f9a8e27](https://github.com/pact-foundation/pact-js-core/commit/f9a8e27a606feb5ababc1f87b49c746dd33a04ce))
+
+## [14.1.2](https://github.com/pact-foundation/pact-js-core/compare/v14.1.1...v14.1.2) (2024-02-07)
+
+
+### Fixes and Improvements
+
+* upgrade to latest ffi 0.4.15 ([1ebdc49](https://github.com/pact-foundation/pact-js-core/commit/1ebdc4983a438368286ae36ae1de0f37424cd403))
+
+## [14.1.1](https://github.com/pact-foundation/pact-js-core/compare/v14.1.0...v14.1.1) (2024-01-22)
+
+
+### Fixes and Improvements
+
+* pactffi_given_with_params accepts 3 args ([a56fdf7](https://github.com/pact-foundation/pact-js-core/commit/a56fdf7f40b13765ea058e2fc70abebe1a185211))
+* update standalone to 2.1.0 ([6b49009](https://github.com/pact-foundation/pact-js-core/commit/6b490091623fa6f36899acbcfb41a14ebbf8da4a))
+
+## [14.1.0](https://github.com/pact-foundation/pact-js-core/compare/v14.0.6...v14.1.0) (2024-01-18)
+
+
+### Features
+
+* add pactffi_given_with_params for params ([#476](https://github.com/pact-foundation/pact-js-core/issues/476)) ([ed8dea8](https://github.com/pact-foundation/pact-js-core/commit/ed8dea8ea1d2b006bdb16922a96f7ca0463fc2de))
+
+## [14.0.6](https://github.com/pact-foundation/pact-js-core/compare/v14.0.5...v14.0.6) (2024-01-17)
+
+
+### Fixes and Improvements
+
+* update standalone to 2.0.7 ([3234fae](https://github.com/pact-foundation/pact-js-core/commit/3234faee368e59c50ec001c2aa80d7a1dba32b14))
+* upgrade to latest ffi 0.4.12 ([94447f4](https://github.com/pact-foundation/pact-js-core/commit/94447f4aa2cd32f0b21747d4e82a63ffceab2a51))
+
+## [14.0.5](https://github.com/pact-foundation/pact-js-core/compare/v14.0.4...v14.0.5) (2023-09-24)
+
+
+### Fixes and Improvements
+
+* upgrade to latest ffi 0.4.9 ([6ddfda7](https://github.com/pact-foundation/pact-js-core/commit/6ddfda7d43a1590d9dfcf7171c1afeffd228ac05))
+
+## [14.0.4](https://github.com/pact-foundation/pact-js-core/compare/v14.0.3...v14.0.4) (2023-07-27)
+
+
+### Fixes and Improvements
+
+* upgrade to latest ffi 0.4.7 ([#462](https://github.com/pact-foundation/pact-js-core/issues/462)) ([55f33c3](https://github.com/pact-foundation/pact-js-core/commit/55f33c33962130d7a11af3add6451181c0b338bb))
+
+## [14.0.3](https://github.com/pact-foundation/pact-js-core/compare/v14.0.2...v14.0.3) (2023-07-14)
+
+
+### Fixes and Improvements
+
+* update standalone to 2.0.3 ([b16a450](https://github.com/pact-foundation/pact-js-core/commit/b16a450f4e6d7ed6cbdfa6192f36f11146ae4031))
+
+## [14.0.2](https://github.com/pact-foundation/pact-js-core/compare/v14.0.1...v14.0.2) (2023-07-13)
+
+
+### Fixes and Improvements
+
+* upgrade to latest ffi 0.4.6 ([56e3f4b](https://github.com/pact-foundation/pact-js-core/commit/56e3f4bae914a5f0037c8cb7715f82fd354d6afb))
+
+## [14.0.1](https://github.com/pact-foundation/pact-js-core/compare/v14.0.0...v14.0.1) (2023-07-07)
+
+
+### Fixes and Improvements
+
+* set engines in package.json not engine ([4c9cc69](https://github.com/pact-foundation/pact-js-core/commit/4c9cc695a02c52c546c30379a92c5b9008888b4e))
+
+## [14.0.0](https://github.com/pact-foundation/pact-js-core/compare/v13.15.0...v14.0.0) (2023-07-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* drop support for node 15 and earlier
+
+### Fixes and Improvements
+
+* drop support for node 15 and earlier ([5fa91db](https://github.com/pact-foundation/pact-js-core/commit/5fa91db208bcceb176665722520519e4cfb5dc93))
+* improve logging output for pact ffi native library lookup ([fb4e338](https://github.com/pact-foundation/pact-js-core/commit/fb4e3383c5fccaa03350004b4086d01ff54cf585))
+
+## [13.15.0](https://github.com/pact-foundation/pact-js-core/compare/v13.13.9...v13.15.0) (2023-07-06)
+
+
+### Features
+
+* allow setting of LOG_LEVEL env var ([7224770](https://github.com/pact-foundation/pact-js-core/commit/72247702e1868286c09988764f93ac4aad68dfdb))
+* ARM64 Linux/MacOS Pact Ruby Standalone ([ea9f86f](https://github.com/pact-foundation/pact-js-core/commit/ea9f86f75a287425dfc1aa9b2124b9c892ec7672))
+* Prebuild pact_ffi pact.node - ([6a38cf7](https://github.com/pact-foundation/pact-js-core/commit/6a38cf7cf2738e43e84586446fcaa8022d9e2431))
+
+
+### Fixes and Improvements
+
+* path lookup for binaries was incorrectly munging into a single path ([7203e10](https://github.com/pact-foundation/pact-js-core/commit/7203e1064deb28a79aa92da0edfa28bac604c38b))
+
+## [13.14.0](https://github.com/pact-foundation/pact-js-core/compare/v13.13.9...v13.14.0) (2023-07-06)
+
+
+### Features
+
+* Allow setting of LOG_LEVEL env var ([7224770](https://github.com/pact-foundation/pact-js-core/commit/72247702e1868286c09988764f93ac4aad68dfdb))
+* Support arm64 Linux/MacOS CLI (Pact Ruby Standalone) ([ea9f86f](https://github.com/pact-foundation/pact-js-core/commit/ea9f86f75a287425dfc1aa9b2124b9c892ec7672))
+* Prebuild native dependencies to speed up and simplify install ([6a38cf7](https://github.com/pact-foundation/pact-js-core/commit/6a38cf7cf2738e43e84586446fcaa8022d9e2431))
+
+## [13.13.9](https://github.com/pact-foundation/pact-js-core/compare/v13.13.8...v13.13.9) (2023-06-30)
+
+
+### Fixes and Improvements
+
+* update standalone to 2.0.2 ([a6133f1](https://github.com/pact-foundation/pact-js-core/commit/a6133f1cd1ee57908c055c2de64ad435edb62de3))
+
+## [13.13.8](https://github.com/pact-foundation/pact-js-core/compare/v13.13.7...v13.13.8) (2023-04-24)
+
+
+### Fixes and Improvements
+
+* update standalone to 1.92.0 ([0287ce8](https://github.com/pact-foundation/pact-js-core/commit/0287ce8f36509ce16812269f065ca75d1b49672d))
+
+## [13.13.7](https://github.com/pact-foundation/pact-js-core/compare/v13.13.6...v13.13.7) (2023-04-24)
+
+
+### Fixes and Improvements
+
+* Remove unusable external export of HTTPConfig, which removes the need to have needle types as a dependency ([f123204](https://github.com/pact-foundation/pact-js-core/commit/f12320473aefdd51e6230e20256fcb61c661bf8d))
+* upgrade to latest needle to support no_proxy. Fixes [#351](https://github.com/pact-foundation/pact-js-core/issues/351) ([30f46d0](https://github.com/pact-foundation/pact-js-core/commit/30f46d071865a69c94a25381f371605e3a1667ed))
+
+### [13.13.6](https://github.com/pact-foundation/pact-js-core/compare/v13.13.5...v13.13.6) (2023-03-14)
+
+
+### Fixes and Improvements
+
+* Use synchronous logging to allow usage with Jest ([a4899f4](https://github.com/pact-foundation/pact-js-core/commit/a4899f45e3ca8ee3f1754dd88bbb15ee8039b3ba))
+
+### [13.13.5](https://github.com/pact-foundation/pact-js-core/compare/v13.13.4...v13.13.5) (2023-03-08)
+
+
+### Fixes and Improvements
+
+* Fix an issue where invalid VerifierOptions keys with Array values would cause a TypeError ([4ecc29f](https://github.com/pact-foundation/pact-js-core/commit/4ecc29f567d16a279b6782a0d8cc7a948100cd25))
+
+### [13.13.4](https://github.com/pact-foundation/pact-js-core/compare/v13.13.3...v13.13.4) (2023-01-23)
+
+
+### Fixes and Improvements
+
+* Fix 'is not a function' regression when using require() and a directly exported factory function. Fixes [#426](https://github.com/pact-foundation/pact-js-core/issues/426) ([2941552](https://github.com/pact-foundation/pact-js-core/commit/2941552e1ca814ed1f2e7dca7e6ae1fb743af440))
+* update rust core to 0.4.0 ([3b396cd](https://github.com/pact-foundation/pact-js-core/commit/3b396cd7aca8bfebd4037f515e499460f44055fc))
 
 ### [13.13.3](https://github.com/pact-foundation/pact-js-core/compare/v13.13.2...v13.13.3) (2022-12-23)
 

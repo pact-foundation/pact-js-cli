@@ -7,13 +7,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-test-osx:
-    runs-on: macos-latest
+  build-and-test:
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        node-version: [16.x,18.x,20.x]
-        os: [macos-latest,windows-latest,ubuntu-latest]
+        node-version: [
+          16.x,
+          18.x,
+          20.x
+          ]
+        os: [
+          windows-2019,
+          macos-latest,
+          ubuntu-latest
+          ]
 
     steps:
       - uses: actions/checkout@v3
@@ -21,13 +29,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: script/ci/build-and-test.sh
+      - run: script/ci/download-standalone-and-test.sh
         if: runner.os != 'Windows'
         env:
           NODE_VERSION: ${{ matrix.node-version }}
           PACT_BROKER_FEATURES: publish_pacts_using_old_api
-      - run: script/ci/build-and-test.sh
+
+      - run: script/ci/download-standalone-and-test.sh
         if: runner.os == 'Windows'
+        shell: bash
         env:
           NODE_VERSION: ${{ matrix.node-version }}
           # The windows build agent has trouble unpacking the tar for
@@ -35,3 +45,4 @@ jobs:
           # we cannot release from Windows in CI.
           ONLY_DOWNLOAD_PACT_FOR_WINDOWS: true
           PACT_BROKER_FEATURES: publish_pacts_using_old_api
+          LIB_ROBUST_BASH_DEBUG: true
