@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [15.0.1](https://github.com/pact-foundation/pact-js-cli/compare/v15.0.0...v15.0.1) (2024-06-12)
+
+
+### Fixes and Improvements
+
+* **deps:** update rimraf to 4.4.1 to avoid glob warnings ([5ddc257](https://github.com/pact-foundation/pact-js-cli/commit/5ddc257b2b60141fd151e698521a86ffe3bda8e5))
+
 ## 15.0.0 (2024-06-12)
 
 
