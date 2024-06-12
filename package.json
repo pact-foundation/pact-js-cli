@@ -1,9 +1,9 @@
 {
   "name": "@pact-foundation/pact-cli",
-  "version": "14.3.7",
+  "version": "15.0.0",
   "description": "Broker CLI for @pact-foundation/pact",
   "main": "src/index.js",
-  "homepage": "https://github.com/pact-foundation/pact-cli#readme",
+  "homepage": "https://github.com/pact-foundation/pact-js-cli#readme",
   "types": "src/index.d.ts",
   "bin": {
     "pact": "bin/pact.js",
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/pact-foundation/pact-cli.git"
+    "url": "git://github.com/pact-foundation/pact-js-cli.git"
   },
   "keywords": [
     "pact",
@@ -104,7 +104,6 @@
     "form-data": "^4.0.0",
     "mocha": "^9.2.2",
     "prettier": "^2.8.8",
-
     "ts-node": "10.9.2",
     "typescript": "4.9.5"
   },
