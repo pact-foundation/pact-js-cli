@@ -17,6 +17,7 @@ describe('Pact Spec', () => {
     before(() => {
       originalLogLevel = pact.logLevel();
     });
+
     after(() => pact.logLevel(originalLogLevel));
 
     context('when setting a log level', () => {

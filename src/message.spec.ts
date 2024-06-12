@@ -14,6 +14,7 @@ describe('Message Spec', () => {
 
   let absolutePath: string;
   let relativePath: string;
+
   beforeEach(() => {
     relativePath = `.tmp/${Math.floor(Math.random() * 1000)}`;
     absolutePath = path.resolve(__dirname, '..', relativePath);

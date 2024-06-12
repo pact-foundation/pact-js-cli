@@ -34,6 +34,7 @@ describe('Pact Util Spec', () => {
         expect(result).to.include('--pact-urls');
         expect(result).to.include('http://idontexist');
       });
+
       describe("and the argument's value is also an object", () => {
         it('should serialise the argument value to a JSON string', () => {
           const result = argsHelper.toArgumentsArray(
@@ -60,6 +61,7 @@ describe('Pact Util Spec', () => {
         });
       });
     });
+
     describe('when called with an array', () => {
       describe('with one element', () => {
         it('should return an array of all arguments', () => {
@@ -92,6 +94,7 @@ describe('Pact Util Spec', () => {
           expect(result).to.include('http://idontexist');
         });
       });
+
       describe('with multiple elements', () => {
         it('should produce correct arguments array', () => {
           const result = argsHelper.toArgumentsArray(
@@ -117,6 +120,7 @@ describe('Pact Util Spec', () => {
           ]);
         });
       });
+
       describe("and an argument's value is an object", () => {
         it('should serialise the argument value to a JSON string', () => {
           const result = argsHelper.toArgumentsArray(
