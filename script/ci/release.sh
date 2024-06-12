@@ -57,7 +57,11 @@ else
   npm run release
   # Emit tag to next step
   VERSION="$("$SCRIPT_DIR/lib/get-version.sh")"
-  TAG="v${VERSION}"
+  echo "version=$VERSION" >>"$GITHUB_OUTPUT"
+  RELEASE_NOTES="${RELEASE_NOTES//'%'/'%25'}"
+  RELEASE_NOTES="${RELEASE_NOTES//$'\n'/'%0A'}"
+  RELEASE_NOTES="${RELEASE_NOTES//$'\r'/'%0D'}"
+  echo "notes=$RELEASE_NOTES" >>"$GITHUB_OUTPUT"
 fi
 
 "$SCRIPT_DIR"/lib/publish.sh
