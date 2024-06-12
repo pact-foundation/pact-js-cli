@@ -24,10 +24,10 @@ Before making a feature request, I have:
 
 ### Feature description
 
-_Please describe what you would like Pact-js-core to do_
+_Please describe what you would like Pact-cli to do_
 
 ### Use case
 
 _What is the use case that motivates this feature request?_
 
-_Please describe *why* you would like Pact-js-core to have this feature._
+_Please describe *why* you would like Pact-cli to have this feature._

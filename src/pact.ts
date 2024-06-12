@@ -33,7 +33,7 @@ export class Pact {
       } catch {
         logger.warn(
           'WARNING: Windows Long Paths is not enabled and might cause Pact to crash if the path is too long. ' +
-            'To fix this issue, please consult https://github.com/pact-foundation/pact-js-core#enable-long-paths`'
+            'To fix this issue, please consult https://github.com/pact-foundation/pact-cli#enable-long-paths`'
         );
       }
     }

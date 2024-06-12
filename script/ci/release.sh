@@ -16,7 +16,7 @@ else
     git config user.name "${GITHUB_ACTOR}"
   fi
 fi
-REPO=${REPO:-pact-foundation/pact-js-core}
+REPO=${REPO:-pact-foundation/pact-js-cli}
 
 # It's easier to read the release notes
 # from the standard version tool before it runs

@@ -4,8 +4,8 @@ export const pactCrashMessage = (
 
 ${extraMessage}
 
-This is almost certainly a bug in pact-js-core. It would be great if you could
-open a bug report at: https://github.com/pact-foundation/pact-js-core/issues
+This is almost certainly a bug in pact-cli. It would be great if you could
+open a bug report at: https://github.com/pact-foundation/pact-cli/issues
 so that we can fix it.
 
 There is additional debugging information above. If you open a bug report, 
