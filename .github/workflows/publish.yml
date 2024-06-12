@@ -30,3 +30,12 @@ jobs:
         run: script/ci/release.sh
         env:
           GITHUB_TOKEN: ${{ github.token }}
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.publish.outputs.version }}
+          name: Release v${{ steps.publish.outputs.version }}
+          body: ${{steps.publish.outputs.notes}}
+          draft: false
+          prerelease: false
