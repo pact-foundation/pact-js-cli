@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [15.0.3](https://github.com/pact-foundation/pact-js-cli/compare/v15.0.2...v15.0.3) (2024-06-25)
+
+
+### Fixes and Improvements
+
+* use full path to pactflow binary as it may be invoked from anywhere via npx ([c3bc9a0](https://github.com/pact-foundation/pact-js-cli/commit/c3bc9a06bedf4e6b16324b0f8c9f25e5d7c8de7e))
+
 ## [15.0.2](https://github.com/pact-foundation/pact-js-cli/compare/v15.0.1...v15.0.2) (2024-06-17)
 
 
