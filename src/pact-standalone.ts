@@ -2,6 +2,30 @@ import * as path from 'path';
 import { getBinaryEntry } from '../standalone/install';
 import pactEnvironment from './pact-environment';
 
+/**
+ * Returns the executable path which is located inside `node_modules`
+ * The naming convention is app-${os}-${arch}
+ * @see https://nodejs.org/api/os.html#osarch
+ * @see https://nodejs.org/api/os.html#osplatform
+ * @example "x/xx/node_modules/app-darwin-arm64"
+ */
+export function getExePath(): string {
+  const { arch } = process;
+  let os = process.platform as string;
+  if (['win32', 'cygwin'].includes(process.platform)) {
+    os = 'windows';
+  }
+  const platformArchSpecificPackage = `@pact-foundation/pact-cli-${os}-${arch}`;
+  try {
+    const lib = require.resolve(`${platformArchSpecificPackage}/package.json`);
+    return lib.replace('package.json', '');
+  } catch (e) {
+    throw new Error(
+      `Couldn't find application binary for ${os}-${arch}:\n 💡 npm install --save-dev ${platformArchSpecificPackage}`
+    );
+  }
+}
+
 export interface PactStandalone {
   cwd: string;
   brokerPath: string;
@@ -43,27 +67,19 @@ export const standalone = (
   return {
     cwd: pactEnvironment.cwd,
     brokerPath: path.join(basePath, broker),
-    brokerFullPath: path.resolve(pactEnvironment.cwd, basePath, broker).trim(),
+    brokerFullPath: path.resolve(getExePath(), basePath, broker).trim(),
     messagePath: path.join(basePath, message),
-    messageFullPath: path
-      .resolve(pactEnvironment.cwd, basePath, message)
-      .trim(),
+    messageFullPath: path.resolve(getExePath(), basePath, message).trim(),
     mockServicePath: path.join(basePath, mock),
-    mockServiceFullPath: path
-      .resolve(pactEnvironment.cwd, basePath, mock)
-      .trim(),
+    mockServiceFullPath: path.resolve(getExePath(), basePath, mock).trim(),
     stubPath: path.join(basePath, stub),
-    stubFullPath: path.resolve(pactEnvironment.cwd, basePath, stub).trim(),
+    stubFullPath: path.resolve(getExePath(), basePath, stub).trim(),
     pactPath: path.join(basePath, pact),
-    pactFullPath: path.resolve(pactEnvironment.cwd, basePath, pact).trim(),
+    pactFullPath: path.resolve(getExePath(), basePath, pact).trim(),
     pactflowPath: path.join(basePath, pactflow),
-    pactflowFullPath: path
-      .resolve(pactEnvironment.cwd, basePath, pactflow)
-      .trim(),
+    pactflowFullPath: path.resolve(getExePath(), basePath, pactflow).trim(),
     verifierPath: path.join(basePath, verify),
-    verifierFullPath: path
-      .resolve(pactEnvironment.cwd, basePath, verify)
-      .trim(),
+    verifierFullPath: path.resolve(getExePath(), basePath, verify).trim(),
   };
 };
 

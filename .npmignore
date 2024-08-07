@@ -1,3 +1,11 @@
+# Standalone Binaries - Published as seperate packages
+@pact-foundation/
+@pact-foundation/
+
+# Cross packaging files
+Makefile
+package.json.tmpl
+
 # Logs
 logs
 npm-debug.log

@@ -1,7 +1,7 @@
 # Logs
 logs
 npm-debug.log
-
+@pact-foundation/*
 # Runtime data
 pids
 *.pid

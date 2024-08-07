@@ -30,6 +30,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: script/ci/download-standalone-and-test.sh
+        shell: bash
         if: runner.os != 'Windows'
         env:
           NODE_VERSION: ${{ matrix.node-version }}
