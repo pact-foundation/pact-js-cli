@@ -21,7 +21,6 @@
   ],
   "cpu": [
     "x64",
-    "ia32",
     "arm64"
   ],
   "engines": {
@@ -51,6 +50,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "optionalDependencies": {
+    "@pact-foundation/pact-cli-darwin-arm64": "15.0.3",
+    "@pact-foundation/pact-cli-darwin-x64": "15.0.3",
+    "@pact-foundation/pact-cli-windows-x64": "15.0.3",
+    "@pact-foundation/pact-cli-linux-x64": "15.0.3",
+    "@pact-foundation/pact-cli-linux-arm64": "15.0.3"
   },
   "dependencies": {
     "chalk": "4.1.2",
