@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.0.0](https://github.com/pact-foundation/pact-js-cli/compare/v15.0.5...v16.0.0) (2024-09-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* create os/arch specific npm optional deps for pact-ruby-standalone
+
+### Features
+
+* create os/arch specific npm optional deps for pact-ruby-standalone ([cb3a26d](https://github.com/pact-foundation/pact-js-cli/commit/cb3a26d933ce2346783d3086c74740315afc20e0))
+
 ## [15.0.5](https://github.com/pact-foundation/pact-js-cli/compare/v15.0.4...v15.0.5) (2024-08-21)
 
 
