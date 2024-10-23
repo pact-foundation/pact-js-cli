@@ -21,10 +21,12 @@ node --version
 npm --version
 
 npm ci
-# Link os/arch specific npm package, for running os/arch system
-make link
 # Update main package.json optional dependencies versions, with those created earlier
 make update_opt_deps
+# update lockfile post buildling updated opt deps
+npm i
+# Link os/arch specific npm package, for running os/arch system
+make link
 npm run format:check
 npm run lint
 npm run build
