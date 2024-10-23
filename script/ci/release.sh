@@ -41,6 +41,7 @@ if [ ! -z "${ONLY_DOWNLOAD_PACT_FOR_WINDOWS:-}" ]; then
   exit 1
 fi
 
+export pkg_version=$NEXT_VERSION
 "$SCRIPT_DIR"/download-standalone-and-test.sh
 
 if [[ ${DRY_RUN:-} == 'true' ]]; then
