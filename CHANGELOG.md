@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.0.3](https://github.com/pact-foundation/pact-js-cli/compare/v16.0.2...v16.0.3) (2024-10-24)
+
+
+### Fixes and Improvements
+
+* update standalone to 2.4.16 ([1e23ed5](https://github.com/pact-foundation/pact-js-cli/commit/1e23ed535d2782240f2fdcb82e6558bdc0cb717a))
+
 ## [16.0.2](https://github.com/pact-foundation/pact-js-cli/compare/v16.0.1...v16.0.2) (2024-10-23)
 
 
