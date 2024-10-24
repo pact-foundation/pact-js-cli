@@ -20,7 +20,10 @@ fi
 node --version
 npm --version
 
-npm ci
+# our lock file may be out of sync post npm release, as it has not been updated post release
+# of the optional depedencies with the path to the npm packages. We should probably commit these 
+# back after releasing the package
+npm ci || npm i
 # Update main package.json optional dependencies versions, with those created earlier
 make update_opt_deps
 # update lockfile post buildling updated opt deps
