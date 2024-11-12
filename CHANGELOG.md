@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.0.4](https://github.com/pact-foundation/pact-js-cli/compare/v16.0.3...v16.0.4) (2024-11-12)
+
+
+### Fixes and Improvements
+
+* **deps:** update check-types / mkdirp / pino / underscore ([6f6dc54](https://github.com/pact-foundation/pact-js-cli/commit/6f6dc543aaf39003413b5f1e6d62c7b3407a8739))
+
 ## [16.0.3](https://github.com/pact-foundation/pact-js-cli/compare/v16.0.2...v16.0.3) (2024-10-24)
 
 
