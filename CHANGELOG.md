@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.0.5](https://github.com/pact-foundation/pact-js-cli/compare/v16.0.4...v16.0.5) (2025-02-24)
+
+
+### Fixes and Improvements
+
+* **deps:** update dependency cross-spawn to v7.0.6 ([1adbeba](https://github.com/pact-foundation/pact-js-cli/commit/1adbeba79b24ac3d2c6e14372cef78b8de35f850))
+* **deps:** update dependency pino to v9.6.0 ([416a8eb](https://github.com/pact-foundation/pact-js-cli/commit/416a8ebd7c504e3a663258316fd404f24ddeeb7a))
+* update standalone to 2.4.20 ([5816c44](https://github.com/pact-foundation/pact-js-cli/commit/5816c44575cb0687d4b99b10b20afd6310a23030))
+* update standalone to 2.4.22 ([53f28a1](https://github.com/pact-foundation/pact-js-cli/commit/53f28a13676ab23aa012e5e937fd37de7d74b3c6))
+
 ## [16.0.4](https://github.com/pact-foundation/pact-js-cli/compare/v16.0.3...v16.0.4) (2024-11-12)
 
 
