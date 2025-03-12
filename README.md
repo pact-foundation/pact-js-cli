@@ -149,7 +149,7 @@ LOG_LEVEL=debug
 ### Pact Broker Publishing
 
 ```js
-var pact = require('@pact-foundation/pact-core');
+var pact = require('@pact-foundation/pact-cli');
 var opts = {
  ...
 };
@@ -178,7 +178,7 @@ pact.publishPacts(opts).then(function () {
 ### Pact Broker Deployment Check
 
 ```js
-var pact = require('@pact-foundation/pact-core');
+var pact = require('@pact-foundation/pact-cli');
 var opts = {
  ...
 };
