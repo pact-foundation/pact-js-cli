@@ -4,7 +4,7 @@ import * as chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import * as http from 'http';
 import * as rimraf from 'rimraf';
-import * as mkdirp from 'mkdirp';
+import { sync as mkdirpSync } from 'mkdirp';
 
 import canDeployFactory, { CanDeploy } from './can-deploy';
 import { CanDeployOptions } from './types';
@@ -32,7 +32,7 @@ describe('CanDeploy Spec', () => {
   beforeEach(() => {
     relativePath = `.tmp/${Math.floor(Math.random() * 1000)}`;
     absolutePath = path.resolve(__dirname, '..', relativePath);
-    mkdirp.sync(absolutePath);
+    mkdirpSync(absolutePath);
   });
 
   afterEach(() => {

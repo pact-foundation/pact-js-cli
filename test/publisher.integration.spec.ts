@@ -1,6 +1,6 @@
-import path = require('path');
-import chai = require('chai');
-import chaiAsPromised = require('chai-as-promised');
+import path from 'path';
+import chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
 import * as http from 'http';
 import logger from '../src/logger';
 import publisherFactory from '../src/publisher';

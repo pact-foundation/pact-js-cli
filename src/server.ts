@@ -1,7 +1,7 @@
-import path = require('path');
-import fs = require('fs');
-import mkdirp = require('mkdirp');
-import checkTypes = require('check-types');
+import path from 'path';
+import fs from 'fs';
+import { sync as mkdirpSync } from 'mkdirp';
+import checkTypes from 'check-types';
 import pact from './pact-standalone';
 import { AbstractService } from './service';
 import { LogLevel } from './logger/types';
@@ -25,7 +25,7 @@ export class Server extends AbstractService {
       try {
         fs.statSync(dir).isDirectory();
       } catch (e) {
-        mkdirp.sync(dir);
+        mkdirpSync(dir);
       }
     }
 

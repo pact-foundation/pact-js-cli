@@ -1,7 +1,7 @@
-import path = require('path');
-import fs = require('fs');
+import path from 'path';
+import fs from 'fs';
 import { timeout, TimeoutError } from 'promise-timeout';
-import checkTypes = require('check-types');
+import checkTypes from 'check-types';
 import logger, { verboseIsImplied } from './logger';
 import spawn, { DEFAULT_ARG } from './spawn';
 import pactStandalone from './pact-standalone';

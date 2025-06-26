@@ -1,5 +1,5 @@
-import express = require('express');
-import basicAuth = require('basic-auth');
+import express from 'express';
+import basicAuth from 'basic-auth';
 
 export function returnJson<T>(
   json: T

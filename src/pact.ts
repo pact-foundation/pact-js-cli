@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as _ from 'underscore';
-import mkdirp = require('mkdirp');
-import rimraf = require('rimraf');
+import { sync as mkdirpSync } from 'mkdirp';
+import rimraf from 'rimraf';
 import serverFactory, { Server, ServerOptions } from './server';
 import stubFactory, { Stub, StubOptions } from './stub';
 import messageFactory from './message';
@@ -26,7 +26,7 @@ export class Pact {
         // Trying to trigger windows error by creating path that's over 260 characters long
         const name =
           'Jctyo0NXwbPN6Y1o8p2TkicKma2kfqmXwVLw6ypBX47uktBPX9FM9kbPraQXsAUZuT6BvenTbnWczXzuN4js0KB9e7P5cccxvmXPYcFhJnBvPSKGH1FlTqEOsjl8djk3md';
-        const dir = mkdirp.sync(path.resolve(__dirname, name, name));
+        const dir = mkdirpSync(path.resolve(__dirname, name, name));
         if (dir) {
           rimraf.sync(dir);
         }

@@ -1,7 +1,7 @@
-import fs = require('fs');
-import path = require('path');
-import mkdirp = require('mkdirp');
-import checkTypes = require('check-types');
+import fs from 'fs';
+import path from 'path';
+import { sync as mkdirpSync } from 'mkdirp';
+import checkTypes from 'check-types';
 import logger from './logger';
 import spawn, { DEFAULT_ARG } from './spawn';
 import pactStandalone from './pact-standalone';
@@ -51,7 +51,7 @@ export class Message {
       try {
         fs.statSync(options.dir).isDirectory();
       } catch (e) {
-        mkdirp.sync(options.dir);
+        mkdirpSync(options.dir);
       }
     }
 
