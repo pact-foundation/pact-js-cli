@@ -72,7 +72,6 @@
   },
   "devDependencies": {
     "@pact-foundation/pact-js-prettier-config": "^1.0.0",
-    "@snyk/protect": "^1.1294.0",
     "@tsconfig/node14": "^14.1.2",
     "@types/basic-auth": "^1.1.8",
     "@types/chai": "4.3.20",
@@ -122,10 +121,8 @@
     "download-libs": "npm run clean && bash script/download-libs.sh",
     "clean-libs": "rimraf --glob standalone/*.{js,map,d.ts} standalone/{windows**,linux**,darwin**} 'ffi'",
     "build": "tsc --project tsconfig.build.json",
-    "prerelease": "npm run snyk-protect",
     "release": "commit-and-tag-version",
     "test": "cross-env LOG_LEVEL=debug PACT_DO_NOT_TRACK=true mocha \"{src,test,bin,standalone}/**/*.spec.ts\"",
-    "snyk-protect": "snyk-protect",
     "format:base": "prettier --parser typescript",
     "format:check": "npm run format:base -- --list-different \"{src,standalone,bin,test}/**/*.{ts,tsx}\"",
     "format:fix": "npm run format:base -- --write \"{src,standalone,bin,test}/**/*.{ts,tsx}\"",
@@ -167,6 +164,5 @@
         "hidden": true
       }
     ]
-  },
-  "snyk": true
+  }
 }
