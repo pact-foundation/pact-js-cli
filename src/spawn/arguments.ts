@@ -1,5 +1,5 @@
-import _ = require('underscore');
-import checkTypes = require('check-types');
+import _ from 'underscore';
+import checkTypes from 'check-types';
 import { MessageOptions, PublisherOptions, ServiceOptions } from '../types';
 import { CanDeployOptions } from '../can-deploy/types';
 

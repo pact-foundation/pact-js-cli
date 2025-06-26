@@ -1,4 +1,4 @@
-import chalk = require('chalk');
+import chalk from 'chalk';
 
 // Get latest version from https://github.com/pact-foundation/pact-ruby-standalone/releases
 export const PACT_STANDALONE_VERSION = '2.4.26';

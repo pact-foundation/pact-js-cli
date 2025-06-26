@@ -1,4 +1,4 @@
-import checkTypes = require('check-types');
+import checkTypes from 'check-types';
 import { DEFAULT_ARG } from './spawn';
 import { AbstractService } from './service';
 

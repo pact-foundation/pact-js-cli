@@ -1,9 +1,9 @@
-import chai = require('chai');
-import path = require('path');
-import chaiAsPromised = require('chai-as-promised');
-import fs = require('fs');
-import mkdirp = require('mkdirp');
-import rimraf = require('rimraf');
+import chai from 'chai';
+import path from 'path';
+import chaiAsPromised from 'chai-as-promised';
+import fs from 'fs';
+import { sync as mkdirpSync } from 'mkdirp';
+import rimraf from 'rimraf';
 import messageFactory from './message';
 
 const { expect } = chai;
@@ -18,7 +18,7 @@ describe('Message Spec', () => {
   beforeEach(() => {
     relativePath = `.tmp/${Math.floor(Math.random() * 1000)}`;
     absolutePath = path.resolve(__dirname, '..', relativePath);
-    mkdirp.sync(absolutePath);
+    mkdirpSync(absolutePath);
   });
 
   afterEach(() => {

@@ -1,8 +1,8 @@
-import express = require('express');
-import * as http from 'http';
-import cors = require('cors');
-import _ = require('underscore');
-import bodyParser = require('body-parser');
+import express from 'express';
+import http from 'http';
+import cors from 'cors';
+import _ from 'underscore';
+import bodyParser from 'body-parser';
 import { auth, returnJson } from './data-utils';
 
 export default (port: number): Promise<http.Server> => {

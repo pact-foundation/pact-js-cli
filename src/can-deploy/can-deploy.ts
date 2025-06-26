@@ -1,6 +1,6 @@
 import { timeout, TimeoutError } from 'promise-timeout';
 import * as _ from 'underscore';
-import checkTypes = require('check-types');
+import checkTypes from 'check-types';
 
 import { CanDeployOptions, CanDeployResponse } from './types';
 import logger, { verboseIsImplied } from '../logger';

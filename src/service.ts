@@ -1,13 +1,13 @@
 /* eslint-disable no-param-reassign */
 // TODO - the param reassign behaviour is relied on, and should be fixed
-import path = require('path');
-import fs = require('fs');
-import events = require('events');
+import path from 'path';
+import fs from 'fs';
+import events from 'events';
 import { ChildProcess } from 'child_process';
 import { timeout, TimeoutError } from 'promise-timeout';
-import mkdirp = require('mkdirp');
-import checkTypes = require('check-types');
-import needle = require('needle');
+import { sync as mkdirpSync } from 'mkdirp';
+import checkTypes from 'check-types';
+import needle from 'needle';
 import spawn, { CliVerbOptions } from './spawn';
 import { LogLevel } from './logger/types';
 import logger, { setLogLevel } from './logger';
@@ -142,7 +142,7 @@ export abstract class AbstractService extends events.EventEmitter {
         fs.statSync(fileObj.dir).isDirectory();
       } catch (e) {
         // If log path doesn't exist, create it
-        mkdirp.sync(fileObj.dir);
+        mkdirpSync(fileObj.dir);
       }
     }
 

@@ -1,5 +1,5 @@
-import spawn = require('cross-spawn');
-import cp = require('child_process');
+import spawn from 'cross-spawn';
+import * as cp from 'child_process';
 import { ChildProcess, SpawnOptions } from 'child_process';
 import * as path from 'path';
 import logger from '../logger';

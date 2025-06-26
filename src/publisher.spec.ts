@@ -1,10 +1,10 @@
-import path = require('path');
-import fs = require('fs');
-import chai = require('chai');
-import chaiAsPromised = require('chai-as-promised');
-import * as http from 'http';
-import rimraf = require('rimraf');
-import mkdirp = require('mkdirp');
+import path from 'path';
+import fs from 'fs';
+import chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+import http from 'http';
+import rimraf from 'rimraf';
+import { sync as mkdirpSync } from 'mkdirp';
 import publisherFactory from './publisher';
 import logger from './logger';
 import brokerMock from '../test/integration/broker-mock';
@@ -35,7 +35,7 @@ describe('Publish Spec', () => {
   beforeEach(() => {
     relativePath = `.tmp/${Math.floor(Math.random() * 1000)}`;
     absolutePath = path.resolve(__dirname, '..', relativePath);
-    mkdirp.sync(absolutePath);
+    mkdirpSync(absolutePath);
   });
 
   afterEach(() => {

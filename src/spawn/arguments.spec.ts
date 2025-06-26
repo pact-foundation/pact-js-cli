@@ -1,5 +1,5 @@
-import chai = require('chai');
-import chaiAsPromised = require('chai-as-promised');
+import chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
 import argsHelper, { DEFAULT_ARG } from './arguments';
 
 const { expect } = chai;
