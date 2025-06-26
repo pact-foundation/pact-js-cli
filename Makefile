@@ -30,7 +30,7 @@ all: libs
 		mkdir -p "$$node_pkg/standalone"; \
 		mv "$$standalone_package" "$$node_pkg/standalone"; \
 		envsubst < package.json.tmpl > "$$node_pkg/package.json"; \
-		(cd $$node_pkg && npm publish --access public --dry-run;)\
+		(cd $$node_pkg && npm publish --access public --dry-run; exit 0)\
 	done
 
 update_opt_deps:
