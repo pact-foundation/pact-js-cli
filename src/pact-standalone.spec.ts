@@ -33,7 +33,6 @@ describe('Pact Standalone', function forMocha() {
 
     // Rust tools
 
-
     expect(pact.mockServerPath).to.contain('pact_mock_server_cli');
     expect(pact.mockServerFullPath).to.contain('pact_mock_server_cli');
     expect(pact.verifierRustPath).to.contain('pact_verifier_cli');
@@ -121,8 +120,8 @@ describe('Pact Standalone', function forMocha() {
         });
 
         it('stub server relative path', () => {
-          expect(fs.existsSync(path.resolve(basePath, pact.stubServerPath))).to.be
-            .true;
+          expect(fs.existsSync(path.resolve(basePath, pact.stubServerPath))).to
+            .be.true;
         });
 
         it('stub server full path', () => {
@@ -130,8 +129,8 @@ describe('Pact Standalone', function forMocha() {
         });
 
         it('rust verifier relative path', () => {
-          expect(fs.existsSync(path.resolve(basePath, pact.verifierRustPath))).to.be
-            .true;
+          expect(fs.existsSync(path.resolve(basePath, pact.verifierRustPath)))
+            .to.be.true;
         });
 
         it('rust verifier full path', () => {

@@ -66,12 +66,16 @@ The verification between the latest version of Banana Service (1.0.0) and versio
 
 The following are the binaries currently made available:
 
-- `pact-mock-service`
 - `pact-broker`
-- `pact-stub-service`
-- `pact-message`
-- `pact-provider-verifier`
-- `pact`
+- `pact` (top level cli)
+- `pact-mock-server`
+- `pact-verifier`
+- `pact-stub-server`
+- `pact-plugin`
+- `pact-mock-service` (legacy)
+- `pact-stub-service` (legacy)
+- `pact-message` (legacy)
+- `pact-provider-verifier` (legacy)
 
 ## Pact-CLI API
 

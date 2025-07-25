@@ -11,7 +11,7 @@ const args = process.argv.slice(2);
 const opts = standaloneUseShell ? { shell: true } : {};
 
 const { error, status } = childProcess.spawnSync(
-  standalone().verifierFullPath,
+  standalone().verifierRustFullPath,
   setStandaloneArgs(args, standaloneUseShell),
   {
     stdio: 'inherit',
