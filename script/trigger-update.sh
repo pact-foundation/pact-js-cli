@@ -27,4 +27,4 @@ else
   echo "Release workflow triggered"
 fi
 
-echo "https://github.com/${repository_slug}/actions?query=workflow%3A%22Update+Pact+Ruby+Standalone%22"
+echo "https://github.com/${repository_slug}/actions?query=workflow%3A%22Update+Pact+Standalone%22"

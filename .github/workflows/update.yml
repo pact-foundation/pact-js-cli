@@ -1,4 +1,4 @@
-name: Update Pact Ruby Standalone
+name: Update Pact Standalone
 
 on:
   repository_dispatch:

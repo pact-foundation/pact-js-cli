@@ -10,6 +10,10 @@
     "pact-broker": "bin/pact-broker.js",
     "pact-mock-service": "bin/pact-mock-service.js",
     "pact-stub-service": "bin/pact-stub-service.js",
+    "pact-mock-server": "bin/pact-mock-server.js",
+    "pact-stub-server": "bin/pact-stub-server.js",
+    "pact-plugin": "bin/pact-plugin.js",
+    "pact-verifier": "bin/pact-verifier.js",
     "pact-provider-verifier": "bin/pact-provider-verifier.js",
     "pact-message": "bin/pact-message.js",
     "pactflow": "bin/pactflow.js"

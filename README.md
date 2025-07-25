@@ -37,7 +37,7 @@
 
 ## Pact CLI Tools
 
-This package wraps the [Pact Standalone Tools](https://github.com/pact-foundation/pact-ruby-standalone/releases) so that they are available to node scripts in package.json, and linked binaries in the [standard](https://docs.npmjs.com/files/folders#executables) NPM installation directory (e..g. `./node_modules/.bin`).
+This package wraps the [Pact Standalone Tools](https://github.com/pact-foundation/pact-standalone/releases) so that they are available to node scripts in package.json, and linked binaries in the [standard](https://docs.npmjs.com/files/folders#executables) NPM installation directory (e..g. `./node_modules/.bin`).
 
 For example:
 
@@ -66,16 +66,20 @@ The verification between the latest version of Banana Service (1.0.0) and versio
 
 The following are the binaries currently made available:
 
-- `pact-mock-service`
 - `pact-broker`
-- `pact-stub-service`
-- `pact-message`
-- `pact-provider-verifier`
-- `pact`
+- `pact` (top level cli)
+- `pact-mock-server`
+- `pact-verifier`
+- `pact-stub-server`
+- `pact-plugin`
+- `pact-mock-service` (legacy)
+- `pact-stub-service` (legacy)
+- `pact-message` (legacy)
+- `pact-provider-verifier` (legacy)
 
 ## Pact-CLI API
 
-A wrapper for the [Pact](http://pact.io) [CLI Tools](https://github.com/pact-foundation/pact-ruby-standalone).
+A wrapper for the [Pact](http://pact.io) [CLI Tools](https://github.com/pact-foundation/pact-standalone).
 
 ## Installation
 
