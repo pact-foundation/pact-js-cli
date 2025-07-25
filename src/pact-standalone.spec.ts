@@ -165,6 +165,20 @@ describe('Pact Standalone', function forMocha() {
             expect(pact.pactflowPath).to.contain('pactflow.bat');
             expect(pact.pactflowFullPath).to.contain('pactflow.bat');
           });
+          it("should add '.exe' to the end of the rust binary names", () => {
+            expect(pact.mockServerPath).to.contain('pact_mock_server_cli.exe');
+            expect(pact.mockServerFullPath).to.contain(
+              'pact_mock_server_cli.exe'
+            );
+            expect(pact.stubServerPath).to.contain('pact-stub-server.exe');
+            expect(pact.stubServerFullPath).to.contain('pact-stub-server.exe');
+            expect(pact.verifierRustPath).to.contain('pact_verifier_cli.exe');
+            expect(pact.verifierRustFullPath).to.contain(
+              'pact_verifier_cli.exe'
+            );
+            expect(pact.pluginPath).to.contain('pact-plugin-cli.exe');
+            expect(pact.pluginFullPath).to.contain('pact-plugin-cli.exe');
+          });
         }
       });
     });

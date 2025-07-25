@@ -61,6 +61,8 @@ export const standalone = (
 ): PactStandalone => {
   const binName = (name: string): string =>
     `${name}${pactEnvironment.isWindows(platform) ? '.bat' : ''}`;
+  const exeName = (name: string): string =>
+    `${name}${pactEnvironment.isWindows(platform) ? '.exe' : ''}`;
   const mock = binName('pact-mock-service');
   const message = binName('pact-message');
   const verify = binName('pact-provider-verifier');
@@ -69,10 +71,10 @@ export const standalone = (
   const pact = binName('pact');
   const pactflow = binName('pactflow');
   // rust tools
-  const mockServer = binName('pact_mock_server_cli');
-  const verifier = binName('pact_verifier_cli');
-  const stubServer = binName('pact-stub-server');
-  const plugin = binName('pact-plugin-cli');
+  const mockServer = exeName('pact_mock_server_cli');
+  const verifier = exeName('pact_verifier_cli');
+  const stubServer = exeName('pact-stub-server');
+  const plugin = exeName('pact-plugin-cli');
 
   const basePath = path.join(
     'standalone',
