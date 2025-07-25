@@ -44,6 +44,15 @@ export interface PactStandalone {
   pactFullPath: string;
   pactflowPath: string;
   pactflowFullPath: string;
+  // rust tools
+  mockServerPath: string;
+  mockServerFullPath: string;
+  verifierRustPath: string;
+  verifierRustFullPath: string;
+  stubServerPath: string;
+  stubServerFullPath: string;
+  pluginPath: string;
+  pluginFullPath: string;
 }
 
 export const standalone = (
@@ -59,6 +68,12 @@ export const standalone = (
   const stub = binName('pact-stub-service');
   const pact = binName('pact');
   const pactflow = binName('pactflow');
+  // rust tools
+  const mockServer = binName('pact_mock_server_cli');
+  const verifier = binName('pact_verifier_cli');
+  const stubServer = binName('pact-stub-server');
+  const plugin = binName('pact-plugin-cli');
+
   const basePath = path.join(
     'standalone',
     getBinaryEntry(platform, arch).folderName,
@@ -81,7 +96,16 @@ export const standalone = (
     pactflowPath: path.join(basePath, pactflow),
     pactflowFullPath: path.resolve(getExePath(), basePath, pactflow).trim(),
     verifierPath: path.join(basePath, verify),
+    // rust tools
+    mockServerPath: path.join(basePath, mockServer),
+    mockServerFullPath: path.resolve(getExePath(), basePath, mockServer).trim(),
     verifierFullPath: path.resolve(getExePath(), basePath, verify).trim(),
+    verifierRustPath: path.join(basePath, verifier),
+    verifierRustFullPath: path.resolve(getExePath(), basePath, verifier).trim(),
+    stubServerPath: path.join(basePath, stubServer),
+    stubServerFullPath: path.resolve(getExePath(), basePath, stubServer).trim(),
+    pluginPath: path.join(basePath, plugin),
+    pluginFullPath: path.resolve(getExePath(), basePath, plugin).trim(),
   };
 };
 

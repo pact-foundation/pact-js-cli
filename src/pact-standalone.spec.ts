@@ -30,6 +30,18 @@ describe('Pact Standalone', function forMocha() {
     expect(pact.pactFullPath).to.contain('pact');
     expect(pact.pactflowPath).to.contain('pactflow');
     expect(pact.pactflowFullPath).to.contain('pactflow');
+
+    // Rust tools
+
+
+    expect(pact.mockServerPath).to.contain('pact_mock_server_cli');
+    expect(pact.mockServerFullPath).to.contain('pact_mock_server_cli');
+    expect(pact.verifierRustPath).to.contain('pact_verifier_cli');
+    expect(pact.verifierRustFullPath).to.contain('pact_verifier_cli');
+    expect(pact.stubServerPath).to.contain('pact-stub-serve');
+    expect(pact.stubServerFullPath).to.contain('pact-stub-serve');
+    expect(pact.pluginPath).to.contain('pact-plugin-cli');
+    expect(pact.pluginFullPath).to.contain('pact-plugin-cli');
   });
 
   it("should return the base directory of the project with 'cwd' (where the package.json file is)", () => {
@@ -97,6 +109,42 @@ describe('Pact Standalone', function forMocha() {
 
         it('pactflow full path', () => {
           expect(fs.existsSync(pact.pactflowFullPath)).to.be.true;
+        });
+
+        it('mock server relative path', () => {
+          expect(fs.existsSync(path.resolve(basePath, pact.mockServerPath))).to
+            .be.true;
+        });
+
+        it('mock server full path', () => {
+          expect(fs.existsSync(pact.mockServerFullPath)).to.be.true;
+        });
+
+        it('stub server relative path', () => {
+          expect(fs.existsSync(path.resolve(basePath, pact.stubServerPath))).to.be
+            .true;
+        });
+
+        it('stub server full path', () => {
+          expect(fs.existsSync(pact.stubServerFullPath)).to.be.true;
+        });
+
+        it('rust verifier relative path', () => {
+          expect(fs.existsSync(path.resolve(basePath, pact.verifierRustPath))).to.be
+            .true;
+        });
+
+        it('rust verifier full path', () => {
+          expect(fs.existsSync(pact.verifierRustFullPath)).to.be.true;
+        });
+
+        it('plugin relative path', () => {
+          expect(fs.existsSync(path.resolve(basePath, pact.pluginPath))).to.be
+            .true;
+        });
+
+        it('plugin full path', () => {
+          expect(fs.existsSync(pact.pluginFullPath)).to.be.true;
         });
 
         if (platform === 'win32') {
