@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.1.0](https://github.com/pact-foundation/pact-js-cli/compare/v16.0.8...v16.1.0) (2025-07-25)
+
+
+### Features
+
+* add pact rust cli tools ([#89](https://github.com/pact-foundation/pact-js-cli/issues/89)) ([d795d75](https://github.com/pact-foundation/pact-js-cli/commit/d795d759dde362e149e53646c9c342143c101f04))
+
+
+### Fixes and Improvements
+
+* **deps:** update dependency chalk to v5 ([d34e8de](https://github.com/pact-foundation/pact-js-cli/commit/d34e8dedc7ddc7b2b7219514bcb3e9dac8bb3f7c))
+* **deps:** update dependency pino to v9.7.0 ([57a7341](https://github.com/pact-foundation/pact-js-cli/commit/57a73412cb8f9f54385fbca93eb9c55c3cd14399))
+* update standalone to 2.4.26 ([#72](https://github.com/pact-foundation/pact-js-cli/issues/72)) ([573967a](https://github.com/pact-foundation/pact-js-cli/commit/573967a373a81f618fc3b8d0a3a80e8b049de24b))
+* update standalone to 2.5.0 ([#88](https://github.com/pact-foundation/pact-js-cli/issues/88)) ([4cd44a8](https://github.com/pact-foundation/pact-js-cli/commit/4cd44a87f1dddafea2fa825e239128e46cb20957))
+* update standalone to 2.5.1 ([#90](https://github.com/pact-foundation/pact-js-cli/issues/90)) ([1516a40](https://github.com/pact-foundation/pact-js-cli/commit/1516a40977f4323d5a5e89abfde16e7974b0ed1e))
+
 ## [16.0.8](https://github.com/pact-foundation/pact-js-cli/compare/v16.0.7...v16.0.8) (2025-06-06)
 
 
