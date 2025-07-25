@@ -2,12 +2,12 @@
 
 set -e
 
-: "${1?Please supply the pact-ruby-standalone version to upgrade to}"
+: "${1?Please supply the pact-standalone version to upgrade to}"
 
 STANDALONE_VERSION=$1
 TYPE=${2:-fix}
 DASHERISED_VERSION=$(echo "${STANDALONE_VERSION}" | sed 's/\./\-/g')
-BRANCH_NAME="chore/upgrade-to-pact-ruby-standalone-${DASHERISED_VERSION}"
+BRANCH_NAME="chore/upgrade-to-pact-standalone-${DASHERISED_VERSION}"
 
 git checkout main
 git checkout standalone/install.ts

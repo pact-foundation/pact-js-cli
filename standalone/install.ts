@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 
-// Get latest version from https://github.com/pact-foundation/pact-ruby-standalone/releases
+// Get latest version from https://github.com/pact-foundation/pact-standalone/releases
 export const PACT_STANDALONE_VERSION = '2.5.0';
 
 function makeError(msg: string): Error {
