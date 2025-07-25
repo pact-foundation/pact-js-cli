@@ -3,7 +3,7 @@ name: Update Pact Ruby Standalone
 on:
   repository_dispatch:
     types:
-      - pact-ruby-standalone-released
+      - pact-standalone-released
 
 jobs:
   update:
@@ -16,6 +16,6 @@ jobs:
         git config --global user.name "${GITHUB_ACTOR}"
         git config pull.ff only
 
-    - run: script/create-pr-to-update-pact-ruby-standalone.sh ${{ github.event.client_payload.version }}
+    - run: script/create-pr-to-update-pact-standalone.sh ${{ github.event.client_payload.version }}
       env:
         GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
