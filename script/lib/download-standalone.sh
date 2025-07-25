@@ -40,10 +40,10 @@ function download_standalone {
   fi
 }
 
-log "Downloading Ruby standalone ${STANDALONE_VERSION}"
+log "Downloading Pact CLI standalone ${STANDALONE_VERSION}"
 
 if [[ $(find "${STANDALONE_DIR}" -name "*${STANDALONE_VERSION}") ]]; then
-  log "Skipping download of Ruby standalone, as it exists"
+  log "Skipping download of Pact CLI standalone, as it exists"
   exit 0
 fi
 

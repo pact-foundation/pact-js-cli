@@ -37,7 +37,7 @@
 
 ## Pact CLI Tools
 
-This package wraps the [Pact Standalone Tools](https://github.com/pact-foundation/pact-ruby-standalone/releases) so that they are available to node scripts in package.json, and linked binaries in the [standard](https://docs.npmjs.com/files/folders#executables) NPM installation directory (e..g. `./node_modules/.bin`).
+This package wraps the [Pact Standalone Tools](https://github.com/pact-foundation/pact-standalone/releases) so that they are available to node scripts in package.json, and linked binaries in the [standard](https://docs.npmjs.com/files/folders#executables) NPM installation directory (e..g. `./node_modules/.bin`).
 
 For example:
 
@@ -79,7 +79,7 @@ The following are the binaries currently made available:
 
 ## Pact-CLI API
 
-A wrapper for the [Pact](http://pact.io) [CLI Tools](https://github.com/pact-foundation/pact-ruby-standalone).
+A wrapper for the [Pact](http://pact.io) [CLI Tools](https://github.com/pact-foundation/pact-standalone).
 
 ## Installation
 
