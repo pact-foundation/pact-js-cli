@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.1.2](https://github.com/pact-foundation/pact-js-cli/compare/v16.1.1...v16.1.2) (2025-07-28)
+
+
+### Fixes and Improvements
+
+* **deps:** update pino to 9.7.0 ([5939033](https://github.com/pact-foundation/pact-js-cli/commit/5939033484d3f790fb5367357a18ef345b87d3a0))
+
 ## [16.1.1](https://github.com/pact-foundation/pact-js-cli/compare/v16.1.0...v16.1.1) (2025-07-25)
 
 
