@@ -1,4 +1,4 @@
-import * as path from 'path';
+import * as path from 'node:path';
 
 export class PactEnvironment {
   public get cwd(): string {
@@ -6,7 +6,7 @@ export class PactEnvironment {
   }
 
   public isWindows(platform: string = process.platform): boolean {
-    return platform === 'win32';
+    return platform === 'win32' || platform === 'cygwin';
   }
 }
 
