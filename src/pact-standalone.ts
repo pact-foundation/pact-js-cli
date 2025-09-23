@@ -45,6 +45,11 @@ export function spawnSync(
   const isWindowsBatFile =
     pactEnvironment.isWindows() && command.endsWith('.bat');
 
+  if (pactEnvironment.isWindows()) {
+    // eslint-disable-next-line no-param-reassign
+    command = `"${command}"`;
+  }
+
   const spawnOptions: childProcess.SpawnSyncOptions = {
     stdio: 'inherit',
     ...(isWindowsBatFile && { shell: true }),
