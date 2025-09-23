@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.1.3](https://github.com/pact-foundation/pact-js-cli/compare/v16.1.2...v16.1.3) (2025-09-23)
+
+
+### Fixes and Improvements
+
+* simplify argument parsing ([6dc5404](https://github.com/pact-foundation/pact-js-cli/commit/6dc5404a211ca60c7f044931d86f8beee8bdc01f)), closes [#99](https://github.com/pact-foundation/pact-js-cli/issues/99)
+
 ## [16.1.2](https://github.com/pact-foundation/pact-js-cli/compare/v16.1.1...v16.1.2) (2025-07-28)
 
 
