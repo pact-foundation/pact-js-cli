@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.1.4](https://github.com/pact-foundation/pact-js-cli/compare/v16.1.3...v16.1.4) (2025-09-23)
+
+
+### Fixes and Improvements
+
+* **win:** wrap command in double quotes to handle paths with spaces ([3c65d84](https://github.com/pact-foundation/pact-js-cli/commit/3c65d84830557ff75eeda7cdbd362230323bc150))
+
 ## [16.1.3](https://github.com/pact-foundation/pact-js-cli/compare/v16.1.2...v16.1.3) (2025-09-23)
 
 
