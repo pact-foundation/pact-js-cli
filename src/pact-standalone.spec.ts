@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as chai from 'chai';
 import os from 'os';
-import { getExePath, PactStandalone, standalone } from './pact-standalone';
+import { getExePath, type PactStandalone, standalone } from './pact-standalone';
 
 const { expect } = chai;
 const basePath = getExePath();

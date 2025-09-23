@@ -1,22 +1,10 @@
 #!/usr/bin/env node
 
-import childProcess = require('child_process');
-import {
-  standalone,
-  standaloneUseShell,
-  setStandaloneArgs,
-} from '../src/pact-standalone';
+import { spawnSync, standalone } from '../src/pact-standalone';
 
-const args = process.argv.slice(2);
-const opts = standaloneUseShell ? { shell: true } : {};
-
-const { error, status } = childProcess.spawnSync(
+const { error, status } = spawnSync(
   standalone().messageFullPath,
-  setStandaloneArgs(args, standaloneUseShell),
-  {
-    stdio: 'inherit',
-    ...opts,
-  }
+  process.argv.slice(2)
 );
 if (error) throw error;
 process.exit(status as number);

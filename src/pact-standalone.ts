@@ -1,4 +1,5 @@
-import * as path from 'path';
+import * as path from 'node:path';
+import * as childProcess from 'node:child_process';
 import { getBinaryEntry } from '../standalone/install';
 import pactEnvironment from './pact-environment';
 
@@ -11,21 +12,49 @@ import pactEnvironment from './pact-environment';
  */
 export function getExePath(): string {
   const { arch } = process;
-  let os = process.platform as string;
-  if (['win32', 'cygwin'].includes(process.platform)) {
-    os = 'windows';
-  }
+  const os = pactEnvironment.isWindows() ? 'windows' : process.platform;
   const packageName = `@pact-foundation/pact-cli`;
 
   const platformArchSpecificPackage = `${packageName}-${os}-${arch}`;
   try {
     const lib = require.resolve(`${platformArchSpecificPackage}/package.json`);
     return lib.replace('package.json', '');
-  } catch (e) {
+  } catch (_) {
     throw new Error(
       `Couldn't find application binary for ${os}-${arch}:\n 💡 check if ${platformArchSpecificPackage} has been downloaded in your node_modules`
     );
   }
+}
+
+/**
+ * Spawns a child process synchronously.
+ *
+ * This differs slightly from `childProcess.spawnSync` by introspecting the
+ * command to see if it is a Windows .bat file and adding `shell: true` to the
+ * spawn options if so, to ensure proper execution on Windows.
+ *
+ * @param command The command to run.
+ * @param args The arguments to pass to the command.
+ * @returns An object containing the error (if any) and the status code.
+ */
+export function spawnSync(
+  command: string,
+  args: string[]
+): { error?: Error; status?: number } {
+  // Runtime check for Windows .bat files - require shell: true for proper execution
+  const isWindowsBatFile =
+    pactEnvironment.isWindows() && command.endsWith('.bat');
+
+  const spawnOptions: childProcess.SpawnSyncOptions = {
+    stdio: 'inherit',
+    ...(isWindowsBatFile && { shell: true }),
+  };
+
+  const result = childProcess.spawnSync(command, args, spawnOptions);
+  if (result.error) {
+    return { error: result.error };
+  }
+  return { status: result.status ?? undefined };
 }
 
 export interface PactStandalone {
@@ -83,77 +112,33 @@ export const standalone = (
     'bin'
   );
 
+  const exePath = getExePath();
   return {
     cwd: pactEnvironment.cwd,
     brokerPath: path.join(basePath, broker),
-    brokerFullPath: path.resolve(getExePath(), basePath, broker).trim(),
+    brokerFullPath: path.resolve(exePath, basePath, broker).trim(),
     messagePath: path.join(basePath, message),
-    messageFullPath: path.resolve(getExePath(), basePath, message).trim(),
+    messageFullPath: path.resolve(exePath, basePath, message).trim(),
     mockServicePath: path.join(basePath, mock),
-    mockServiceFullPath: path.resolve(getExePath(), basePath, mock).trim(),
+    mockServiceFullPath: path.resolve(exePath, basePath, mock).trim(),
     stubPath: path.join(basePath, stub),
-    stubFullPath: path.resolve(getExePath(), basePath, stub).trim(),
+    stubFullPath: path.resolve(exePath, basePath, stub).trim(),
     pactPath: path.join(basePath, pact),
-    pactFullPath: path.resolve(getExePath(), basePath, pact).trim(),
+    pactFullPath: path.resolve(exePath, basePath, pact).trim(),
     pactflowPath: path.join(basePath, pactflow),
-    pactflowFullPath: path.resolve(getExePath(), basePath, pactflow).trim(),
+    pactflowFullPath: path.resolve(exePath, basePath, pactflow).trim(),
     verifierPath: path.join(basePath, verify),
     // rust tools
     mockServerPath: path.join(basePath, mockServer),
-    mockServerFullPath: path.resolve(getExePath(), basePath, mockServer).trim(),
-    verifierFullPath: path.resolve(getExePath(), basePath, verify).trim(),
+    mockServerFullPath: path.resolve(exePath, basePath, mockServer).trim(),
+    verifierFullPath: path.resolve(exePath, basePath, verify).trim(),
     verifierRustPath: path.join(basePath, verifier),
-    verifierRustFullPath: path.resolve(getExePath(), basePath, verifier).trim(),
+    verifierRustFullPath: path.resolve(exePath, basePath, verifier).trim(),
     stubServerPath: path.join(basePath, stubServer),
-    stubServerFullPath: path.resolve(getExePath(), basePath, stubServer).trim(),
+    stubServerFullPath: path.resolve(exePath, basePath, stubServer).trim(),
     pluginPath: path.join(basePath, plugin),
-    pluginFullPath: path.resolve(getExePath(), basePath, plugin).trim(),
+    pluginFullPath: path.resolve(exePath, basePath, plugin).trim(),
   };
 };
-
-const isWindows = process.platform === 'win32';
-
-function quoteCmdArg(arg: string) {
-  return `"${arg.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
-}
-
-function quotePwshArg(arg: string) {
-  return `'${arg.replace(/'/g, "''")}'`;
-}
-
-function quotePosixShArg(arg: string) {
-  return `'${arg.replace(/'/g, "'\\''")}'`;
-}
-
-function testWindowsExe(cmd: string, file: string) {
-  return new RegExp(`^(?:.*\\\\)?${cmd}(?:\\.exe)?$`, 'i').test(file);
-}
-
-function parseArgs(unparsed_args: string[]) {
-  if (isWindows === true) {
-    const file = process.env['comspec'] || 'cmd.exe';
-    if (testWindowsExe('cmd', file) === true) {
-      return unparsed_args.map((i) => quoteCmdArg(i));
-    }
-    if (testWindowsExe('(powershell|pwsh)', file) || file.endsWith('/pwsh')) {
-      return unparsed_args.map((i) => quotePwshArg(i));
-    }
-    return unparsed_args;
-  }
-  return unparsed_args.map((i) => quotePosixShArg(i));
-}
-
-export function setStandaloneArgs(
-  unparsed_args: string[],
-  shell: boolean
-): string[] {
-  let parsedArgs = unparsed_args;
-  if (shell === true) {
-    parsedArgs = parseArgs(unparsed_args);
-  }
-  return parsedArgs;
-}
-
-export const standaloneUseShell = isWindows;
 
 export default standalone();
