@@ -3,7 +3,7 @@ import path from 'path';
 import chaiAsPromised from 'chai-as-promised';
 import fs from 'fs';
 import { sync as mkdirpSync } from 'mkdirp';
-import rimraf from 'rimraf';
+import { rimraf } from 'rimraf';
 import messageFactory from './message';
 
 const { expect } = chai;
