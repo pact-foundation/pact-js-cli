@@ -3,7 +3,8 @@ import fs from 'fs';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import http from 'http';
-import rimraf from 'rimraf';
+import { rimraf } from 'rimraf';
+
 import { sync as mkdirpSync } from 'mkdirp';
 import publisherFactory from './publisher';
 import logger from './logger';

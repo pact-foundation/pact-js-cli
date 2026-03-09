@@ -1,7 +1,8 @@
 import * as path from 'path';
 import * as _ from 'underscore';
 import { sync as mkdirpSync } from 'mkdirp';
-import rimraf from 'rimraf';
+import { rimraf } from 'rimraf';
+
 import serverFactory, { Server, ServerOptions } from './server';
 import stubFactory, { Stub, StubOptions } from './stub';
 import messageFactory from './message';

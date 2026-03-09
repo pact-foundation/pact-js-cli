@@ -3,7 +3,7 @@ import chaiAsPromised from 'chai-as-promised';
 import fs from 'fs';
 import path from 'path';
 import { sync as mkdirpSync } from 'mkdirp';
-import rimraf from 'rimraf';
+import { rimraf } from 'rimraf';
 import serverFactory, { ServerOptions } from './server';
 
 chai.use(chaiAsPromised);
