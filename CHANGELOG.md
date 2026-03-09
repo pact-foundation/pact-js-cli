@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [16.1.7](https://github.com/pact-foundation/pact-js-cli/compare/v16.1.6...v16.1.7) (2026-03-09)
+
+
+### Fixes and Improvements
+
+* **deps:** bump underscore from 1.13.7 to 1.13.8 ([a179707](https://github.com/pact-foundation/pact-js-cli/commit/a179707b3eb06886fb2eec03c47d4469e660ae8d))
+
 ## [16.1.6](https://github.com/pact-foundation/pact-js-cli/compare/v16.1.5...v16.1.6) (2026-02-24)
 
 
