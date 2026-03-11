@@ -43,8 +43,8 @@ if [[ $(find "${STANDALONE_DIR}" -name "*${STANDALONE_VERSION}") ]]; then
   exit 0
 fi
 
-download_standalone "pact-x86_64-windows.exe"           "pact-windows-x64.exe"
-download_standalone "pact-aarch64-windows.exe"           "pact-windows-arm64.exe"
+download_standalone "pact-x86_64-windows-msvc.exe"           "pact-windows-x64.exe"
+download_standalone "pact-aarch64-windows-msvc.exe"           "pact-windows-arm64.exe"
 
 if [[ ${RUNNER_OS:-} == 'Windows' ]]; then
   ONLY_DOWNLOAD_PACT_FOR_WINDOWS=true
