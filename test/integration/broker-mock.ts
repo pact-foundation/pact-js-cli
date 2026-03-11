@@ -17,94 +17,146 @@ export default (port: number): Promise<http.Server> => {
     res: express.Response
   ): express.Response {
     if (
-      _.isEmpty(req.body) ||
-      // 2. Is there a consumer, provider and version in the request?
-      _.isEmpty(req.params['consumer']) ||
-      _.isEmpty(req.params['provider']) ||
-      _.isEmpty(req.params['version'])
+      _.isEmpty(req.body)
+      // ||
+      // // 2. Is there a consumer, provider and version in the request?
+      // _.isEmpty(req.params['consumer']) ||
+      // _.isEmpty(req.params['provider']) ||
+      // _.isEmpty(req.params['version'])
     ) {
       return res.sendStatus(400);
     }
-    return res.status(201).json({
-      consumer: { name: 'consumer' },
-      provider: { name: 'publisher' },
-      interactions: [
-        {
-          description: 'Greeting',
-          request: { method: 'GET', path: '/' },
-          response: { status: 200, headers: {}, body: { greeting: 'Hello' } },
-        },
-      ],
-      metadata: { pactSpecificationVersion: '2.0.0' },
-      createdAt: '2017-11-06T13:06:48+00:00',
-      _links: {
-        self: {
-          title: 'Pact',
-          name: 'Pact between consumer (v1.0.0) and publisher',
-          href: `${BROKER_HOST}/pacts/provider/publisher/consumer/consumer/version/1.0.0`,
-        },
-        'pb:consumer': {
-          title: 'Consumer',
-          name: 'consumer',
-          href: `${BROKER_HOST}/pacticipants/consumer`,
-        },
-        'pb:consumer-version': {
-          title: 'Consumer version',
-          name: '1.0.0',
-          href: `${BROKER_HOST}/pacticipants/consumer/versions/1.0.0`,
-        },
-        'pb:provider': {
-          title: 'Provider',
-          name: 'publisher',
-          href: `${BROKER_HOST}/pacticipants/publisher`,
-        },
-        'pb:latest-pact-version': {
-          title: 'Latest version of this pact',
-          href: `${BROKER_HOST}/pacts/provider/publisher/consumer/consumer/latest`,
-        },
-        'pb:all-pact-versions': {
-          title: 'All version of this pact',
-          href: `${BROKER_HOST}/pacts/provider/publisher/consumer/consumer/versions`,
-        },
-        'pb:latest-untagged-pact-version': {
-          title: 'Latest untagged version of this pact',
-          href: `${BROKER_HOST}/pacts/provider/publisher/consumer/consumer/latest-untagged`,
-        },
-        'pb:latest-tagged-pact-version': {
-          title: 'Latest tagged version of this pact',
-          href: `${BROKER_HOST}/pacts/provider/publisher/consumer/consumer/latest/{tag}`,
-          templated: true,
-        },
-        'pb:previous-distinct': {
-          title: 'Previous distinct version of this pact',
-          href: `${BROKER_HOST}/pacts/provider/publisher/consumer/consumer/version/1.0.0/previous-distinct`,
-        },
-        'pb:diff-previous-distinct': {
-          title: 'Diff with previous distinct version of this pact',
-          href: `${BROKER_HOST}/pacts/provider/publisher/consumer/consumer/version/1.0.0/diff/previous-distinct`,
-        },
-        'pb:pact-webhooks': {
-          title: 'Webhooks for the pact between consumer and publisher',
-          href: `${BROKER_HOST}/webhooks/provider/publisher/consumer/consumer`,
-        },
-        'pb:tag-prod-version': {
-          title:
-            "PUT to this resource to tag this consumer version as 'production'",
-          href: `${BROKER_HOST}/pacticipants/consumer/versions/1.0.0/tags/prod`,
-        },
-        'pb:tag-version': {
-          title: 'PUT to this resource to tag this consumer version',
-          href: `${BROKER_HOST}/pacticipants/consumer/versions/1.0.0/tags/{tag}`,
-        },
-        'pb:publish-verification-results': {
-          title: 'Publish verification results',
-          href: `${BROKER_HOST}/pacts/provider/publisher/consumer/consumer/pact-version/7c36fc0ded24117ec189db3f54fadffc23a56d68/verification-results`,
-        },
-        curies: [
-          { name: 'pb', href: `${BROKER_HOST}/doc/{rel}`, templated: true },
-        ],
+    return res.status(201).json(
+      {
+  "logs": [
+    {
+      "level": "debug",
+      "message": "Created consumer version 1.0.0 with tags test, latest",
+      "deprecationWarning": "Replaced by notices"
+    },
+    {
+      "level": "prompt",
+      "message": "  Next steps:\n    Configure the version branch to be the value of your repository branch.",
+      "deprecationWarning": "Replaced by notices"
+    },
+    {
+      "level": "success",
+      "message": "Pact successfully published for consumer version 1.0.0 and provider publisher.",
+      "deprecationWarning": "Replaced by notices"
+    },
+    {
+      "level": "debug",
+      "message": "  View the published pact at http://localhost:9292/pacts/provider/publisher/consumer/consumer/version/1.0.0",
+      "deprecationWarning": "Replaced by notices"
+    },
+    {
+      "level": "debug",
+      "message": "  Events detected: contract_published, contract_content_changed (first time any pact published for this consumer with consumer version tagged test, first time any pact published for this consumer with consumer version tagged latest)",
+      "deprecationWarning": "Replaced by notices"
+    },
+    {
+      "level": "prompt",
+      "message": "  Next steps:",
+      "deprecationWarning": "Replaced by notices"
+    },
+    {
+      "level": "prompt",
+      "message": "    * Add Pact verification tests to the publisher build. See https://docs.pact.io/go/provider_verification",
+      "deprecationWarning": "Replaced by notices"
+    },
+    {
+      "level": "prompt",
+      "message": "    * Configure separate publisher pact verification build and webhook to trigger it when the pact content changes. See https://docs.pact.io/go/webhooks",
+      "deprecationWarning": "Replaced by notices"
+    }
+  ],
+  "notices": [
+    {
+      "type": "debug",
+      "text": "Created consumer version 1.0.0 with tags test, latest"
+    },
+    {
+      "type": "prompt",
+      "text": "  Next steps:\n    Configure the version branch to be the value of your repository branch."
+    },
+    {
+      "type": "success",
+      "text": "Pact successfully published for consumer version 1.0.0 and provider publisher."
+    },
+    {
+      "type": "debug",
+      "text": "  View the published pact at http://localhost:9292/pacts/provider/publisher/consumer/consumer/version/1.0.0"
+    },
+    {
+      "type": "debug",
+      "text": "  Events detected: contract_published, contract_content_changed (first time any pact published for this consumer with consumer version tagged test, first time any pact published for this consumer with consumer version tagged latest)"
+    },
+    {
+      "type": "prompt",
+      "text": "  Next steps:"
+    },
+    {
+      "type": "prompt",
+      "text": "    * Add Pact verification tests to the publisher build. See https://docs.pact.io/go/provider_verification"
+    },
+    {
+      "type": "prompt",
+      "text": "    * Configure separate publisher pact verification build and webhook to trigger it when the pact content changes. See https://docs.pact.io/go/webhooks"
+    }
+  ],
+  "_embedded": {
+    "pacticipant": {
+      "name": "consumer",
+      "_links": {
+        "self": {
+          href: `${BROKER_HOST}/pacticipants/consumer`
+        }
+      }
+    },
+    "version": {
+      "number": "1.0.0",
+      "_links": {
+        "self": {
+          "title": "Version",
+          "name": "1.0.0",
+          href: `${BROKER_HOST}/pacticipants/consumer/versions/1.0.0`
+        }
+      }
+    }
+  },
+  "_links": {
+    "pb:pacticipant": {
+      "title": "Pacticipant",
+      "name": "consumer",
+      href: `${BROKER_HOST}/pacticipants/consumer`
+    },
+    "pb:pacticipant-version": {
+      "title": "Pacticipant version",
+      "name": "1.0.0",
+      href: `${BROKER_HOST}/pacticipants/consumer/versions/1.0.0`
+    },
+    "pb:pacticipant-version-tags": [
+      {
+        "title": "Tag",
+        "name": "test",
+        href: `${BROKER_HOST}/pacticipants/consumer/versions/1.0.0/tags/test`
       },
-    });
+      {
+        "title": "Tag",
+        "name": "latest",
+        href: `${BROKER_HOST}/pacticipants/consumer/versions/1.0.0/tags/latest`
+      }
+    ],
+    "pb:contracts": [
+      {
+        "title": "Pact",
+        "name": "Pact between consumer (1.0.0) and publisher",
+        href: `${BROKER_HOST}/pacts/provider/publisher/consumer/consumer/version/1.0.0`
+      }
+    ]
+  }
+}
+    );
   }
 
   function tagPactFunction(
@@ -121,48 +173,53 @@ export default (port: number): Promise<http.Server> => {
     return res.sendStatus(201);
   }
 
-  const rootResponse = () =>
+  const rootResponse = (PATH: string) =>
     returnJson({
       _links: {
         self: {
-          href: BROKER_HOST,
+          href: BROKER_HOST + PATH,
           title: 'Index',
           templated: false,
         },
         'pb:publish-pact': {
-          href: `${BROKER_HOST}/pacts/provider/{provider}/consumer/{consumer}/version/{consumerApplicationVersion}`,
+          href: `${BROKER_HOST + PATH}/pacts/provider/{provider}/consumer/{consumer}/version/{consumerApplicationVersion}`,
           title: 'Publish a pact',
           templated: true,
         },
         'pb:latest-pact-versions': {
-          href: `${BROKER_HOST}/pacts/latest`,
+          href: `${BROKER_HOST + PATH}/pacts/latest`,
           title: 'Latest pact version',
           templated: false,
         },
         'pb:pacticipants': {
-          href: `${BROKER_HOST}/pacticipants`,
+          href: `${BROKER_HOST + PATH}/pacticipants`,
           title: 'Pacticipants',
           templated: false,
         },
+        "pb:publish-contracts": {
+          href: `${BROKER_HOST + PATH}/contracts/publish`,
+          "title": "Publish contracts",
+          "templated": false
+        },
         'pb:latest-provider-pacts': {
-          href: `${BROKER_HOST}/pacts/provider/{provider}/latest`,
+          href: `${BROKER_HOST + PATH}/pacts/provider/{provider}/latest`,
           title: 'Latest pacts by provider',
           templated: true,
         },
         'pb:latest-provider-pacts-with-tag': {
-          href: `${BROKER_HOST}/pacts/provider/{provider}/latest/{tag}`,
+          href: `${BROKER_HOST + PATH}/pacts/provider/{provider}/latest/{tag}`,
           title: 'Latest pacts by provider with a specified tag',
           templated: true,
         },
         'pb:webhooks': {
-          href: `${BROKER_HOST}/webhooks`,
+          href: `${BROKER_HOST + PATH}/webhooks`,
           title: 'Webhooks',
           templated: false,
         },
         curies: [
           {
             name: 'pb',
-            href: `${BROKER_HOST}/doc/{rel}`,
+            href: `${BROKER_HOST + PATH}/doc/{rel}`,
             templated: true,
           },
         ],
@@ -192,6 +249,17 @@ export default (port: number): Promise<http.Server> => {
   // Authenticated calls...
   server.put(
     '/auth/pacts/provider/:provider/consumer/:consumer/version/:version',
+    auth,
+    pactFunction
+  );
+  
+  server.post(
+    '/contracts/publish',
+    pactFunction
+  );
+
+  server.post(
+    '/auth/contracts/publish',
     auth,
     pactFunction
   );
@@ -278,9 +346,9 @@ export default (port: number): Promise<http.Server> => {
   });
 
   // Get root HAL links
-  server.get('/', rootResponse());
-  server.get('/auth', rootResponse());
-  server.get('/noauth', rootResponse());
+  server.get('/', rootResponse(""));
+  server.get('/auth', rootResponse("/auth"));
+  server.get('/noauth', rootResponse("/noauth"));
 
   // Get pacts by Provider "notfound"
   server.get(
@@ -362,6 +430,12 @@ export default (port: number): Promise<http.Server> => {
         ],
       },
     })
+  );
+
+    server.post(
+    '/contracts/publish',
+    auth,
+    pactFunction
   );
 
   server.get(

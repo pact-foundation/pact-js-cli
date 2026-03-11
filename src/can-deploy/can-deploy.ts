@@ -12,8 +12,12 @@ export class CanDeploy {
   public static convertForSpawnBinary(
     options: CanDeployOptions
   ): CanDeployOptions[] {
+    const baseOptions = _.omit(options, 'pacticipants');
+    if (baseOptions.verbose === true) {
+      baseOptions.verbose = PACT_NODE_NO_VALUE;
+    }
     return _.flatten(
-      [_.omit(options, 'pacticipants')].concat(
+      [baseOptions].concat(
         options.pacticipants.map(({ name, latest, version }) => [
           { name },
           version
@@ -93,9 +97,9 @@ export class CanDeploy {
     const canDeployPromise = new Promise<CanDeployResponse | string>(
       (resolve, reject) => {
         const instance = spawn.spawnBinary(
-          pactStandalone.brokerFullPath,
+          pactStandalone.pactFullPath,
           [
-            { cliVerb: 'can-i-deploy' },
+            { cliVerb: ['broker','can-i-deploy'] },
             ...CanDeploy.convertForSpawnBinary(this.options),
           ],
           this.__argMapping

@@ -9,7 +9,7 @@ require_binary curl
 require_binary unzip
 require_env_var STANDALONE_VERSION
 
-BASEURL=https://github.com/pact-foundation/pact-standalone/releases/download
+BASEURL=https://github.com/pact-foundation/pact-cli/releases/download
 STANDALONE_DIR="${LIB_DIR}/../../standalone"
 
 function download_standalone {
@@ -30,13 +30,9 @@ function download_standalone {
 
   log "Downloading standalone version $STANDALONE_VERSION to $DOWNLOAD_LOCATION"
   download_to "$URL" "$DOWNLOAD_LOCATION"
-  if [ "${STANDALONE_FILENAME%zip}" != "${STANDALONE_FILENAME}" ]; then
-    unzip -qo "$DOWNLOAD_LOCATION" -d "${DOWNLOAD_LOCATION%.*}"
-    rm "${DOWNLOAD_LOCATION}"
-  else
-    mkdir -p "${DOWNLOAD_LOCATION%.tar.gz}"
-    tar -xf "$DOWNLOAD_LOCATION" -C "${DOWNLOAD_LOCATION%.tar.gz}"
-    rm "${DOWNLOAD_LOCATION}"
+  # Set executable permission if not a Windows binary
+  if [[ ! "$STANDALONE_FILENAME" =~ windows ]]; then
+    chmod +x "$DOWNLOAD_LOCATION"
   fi
 }
 
@@ -47,17 +43,13 @@ if [[ $(find "${STANDALONE_DIR}" -name "*${STANDALONE_VERSION}") ]]; then
   exit 0
 fi
 
-download_standalone "pact-${STANDALONE_VERSION}-windows-x86_64.zip"            "windows-x64-${STANDALONE_VERSION}.zip"
-
-if [[ ${RUNNER_OS:-} == 'Windows' ]]; then
-  ONLY_DOWNLOAD_PACT_FOR_WINDOWS=true
-fi
-
 if [ -z "${ONLY_DOWNLOAD_PACT_FOR_WINDOWS:-}" ]; then
-  download_standalone "pact-${STANDALONE_VERSION}-osx-x86_64.tar.gz"           "darwin-x64-${STANDALONE_VERSION}.tar.gz"
-  download_standalone "pact-${STANDALONE_VERSION}-osx-arm64.tar.gz"           "darwin-arm64-${STANDALONE_VERSION}.tar.gz"
-  download_standalone "pact-${STANDALONE_VERSION}-linux-x86_64.tar.gz"  "linux-x64-${STANDALONE_VERSION}.tar.gz"
-  download_standalone "pact-${STANDALONE_VERSION}-linux-arm64.tar.gz"  "linux-arm64-${STANDALONE_VERSION}.tar.gz"
+  download_standalone "pact-x86_64-macos"           "pact-darwin-x64"
+  download_standalone "pact-aarch64-macos"           "pact-darwin-arm64"
+  download_standalone "pact-x86_64-linux-musl"           "pact-linux-x64"
+  download_standalone "pact-aarch64-linux-musl"           "pact-linux-arm64"
+  download_standalone "pact-x86_64-windows"           "pact-windows-x64"
+  download_standalone "pact-aarch64-windows"           "pact-windows-arm64"
 fi
 
 # Write readme in the ffi folder

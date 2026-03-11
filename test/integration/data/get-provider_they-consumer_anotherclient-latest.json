@@ -21,7 +21,9 @@
 		}
 	}],
 	"metadata": {
-		"pactSpecificationVersion": "2.0.0"
+		"pactSpecification": {
+			"version": "2.0.0"
+		}
 	},
 	"updatedAt": "2016-05-15T00:09:33+00:00",
 	"createdAt": "2016-05-15T00:09:06+00:00",

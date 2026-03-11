@@ -8,7 +8,7 @@ import { timeout, TimeoutError } from 'promise-timeout';
 import { sync as mkdirpSync } from 'mkdirp';
 import checkTypes from 'check-types';
 import needle from 'needle';
-import spawn, { CliVerbOptions } from './spawn';
+import spawn, { CliVerbOptions, PACT_NODE_NO_VALUE } from './spawn';
 import { LogLevel } from './logger/types';
 import logger, { setLogLevel } from './logger';
 import { ServiceOptions } from './types';
@@ -173,7 +173,8 @@ export abstract class AbstractService extends events.EventEmitter {
       // if port isn't specified, listen for it when pact runs
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const catchPort = (data: any): void => {
-        const match = data.match(/port=([0-9]+)/);
+        // start up message differs in stub server - pact_stub_server::server: Server started on port 63949
+        const match = data.match(/port ([0-9]+)/);
         if (match && match[1]) {
           this.options.port = parseInt(match[1], 10);
           if (this?.__instance?.stdout) {
@@ -250,6 +251,10 @@ export abstract class AbstractService extends events.EventEmitter {
 
   // Subclass responsible for spawning the process
   protected spawnBinary(): ChildProcess {
+    if (this.options.cors){
+      // @ts-ignore
+      this.options.cors = PACT_NODE_NO_VALUE
+    }
     return spawn.spawnBinary(
       this.__serviceCommand,
       this.__cliVerb ? [this.__cliVerb, this.options] : [this.options],

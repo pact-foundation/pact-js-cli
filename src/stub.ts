@@ -1,5 +1,5 @@
 import checkTypes from 'check-types';
-import { DEFAULT_ARG } from './spawn';
+// import { PACT_NODE_NO_VALUE } from './spawn';
 import { AbstractService } from './service';
 
 import pact from './pact-standalone';
@@ -18,17 +18,19 @@ export class Stub extends AbstractService {
 
     checkTypes.assert.not.emptyArray(options.pactUrls);
 
-    super(pact.stubFullPath, options, {
-      pactUrls: DEFAULT_ARG,
+    super(pact.pactFullPath, options, {
+      pactUrls: '--file',
       port: '--port',
-      host: '--host',
-      log: '--log',
+      // host: '--host',
+      // log: '--log',
       logLevel: '--log-level',
-      ssl: '--ssl',
-      sslcert: '--sslcert',
-      sslkey: '--sslkey',
+      // ssl: '--ssl',
+      // sslcert: '--sslcert',
+      // sslkey: '--sslkey',
       cors: '--cors',
-    });
+    },
+    { cliVerb: 'stub' }
+  );
     this.options = options;
   }
 }
