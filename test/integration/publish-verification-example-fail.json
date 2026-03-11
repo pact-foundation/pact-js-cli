@@ -22,7 +22,9 @@
 		}
 	],
 	"metadata": {
-		"pactSpecificationVersion": "2.0.0"
+		"pactSpecification": {
+			"version": "2.0.0"
+		}
 	},
 	"createdAt": "2017-05-08T22:56:48+00:00",
 	"_links": {

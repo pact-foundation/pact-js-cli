@@ -29,7 +29,9 @@
       }
     }
   ],
-  "metadata": {
-    "pactSpecificationVersion": "2.0.0"
-  }
+	"metadata": {
+		"pactSpecification": {
+			"version": "2.0.0"
+		}
+	}
 }

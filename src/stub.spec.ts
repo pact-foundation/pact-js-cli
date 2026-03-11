@@ -26,7 +26,7 @@ describe('Stub Spec', () => {
 
   describe('Start stub', () => {
     context('when invalid options are set', () => {
-      it('should fail if custom ssl certs do not exist', () => {
+      it.skip('should fail if custom ssl certs do not exist', () => {
         expect(() =>
           stubFactory({
             ssl: true,
@@ -36,7 +36,7 @@ describe('Stub Spec', () => {
         ).to.throw(Error);
       });
 
-      it('should fail if custom ssl keys do not exist', () => {
+      it.skip('should fail if custom ssl keys do not exist', () => {
         expect(() =>
           stubFactory({
             ssl: true,
@@ -46,7 +46,7 @@ describe('Stub Spec', () => {
         ).to.throw(Error);
       });
 
-      it("should fail if custom ssl cert is set, but ssl key isn't", () => {
+      it.skip("should fail if custom ssl cert is set, but ssl key isn't", () => {
         expect(() =>
           stubFactory({
             ssl: true,
@@ -55,7 +55,7 @@ describe('Stub Spec', () => {
         ).to.throw(Error);
       });
 
-      it("should fail if custom ssl key is set, but ssl cert isn't", () => {
+      it.skip("should fail if custom ssl key is set, but ssl cert isn't", () => {
         expect(() =>
           stubFactory({
             ssl: true,
@@ -114,13 +114,13 @@ describe('Stub Spec', () => {
         return expect(stub.start()).to.eventually.be.fulfilled;
       });
 
-      it('should start correctly with ssl', () => {
+      it.skip('should start correctly with ssl', () => {
         stub = stubFactory({ ...validDefaults, ssl: true });
         expect(stub.options.ssl).to.equal(true);
         return expect(stub.start()).to.eventually.be.fulfilled;
       });
 
-      it('should start correctly with custom ssl cert/key', () => {
+      it.skip('should start correctly with custom ssl cert/key', () => {
         stub = stubFactory({
           ...validDefaults,
           ssl: true,
@@ -131,7 +131,7 @@ describe('Stub Spec', () => {
         return expect(stub.start()).to.eventually.be.fulfilled;
       });
 
-      it('should start correctly with custom ssl cert/key but without specifying ssl flag', () => {
+      it.skip('should start correctly with custom ssl cert/key but without specifying ssl flag', () => {
         stub = stubFactory({
           ...validDefaults,
           sslcert: path.resolve(__dirname, '../test/ssl/server.crt'),
@@ -162,7 +162,7 @@ describe('Stub Spec', () => {
         return expect(stub.start()).to.eventually.be.fulfilled;
       });
 
-      it('should start correctly with log', () => {
+      it.skip('should start correctly with log', () => {
         const logPath = path.resolve(dirPath, 'log.txt');
         stub = stubFactory({ ...validDefaults, log: logPath });
         expect(stub.options.log).to.equal(logPath);

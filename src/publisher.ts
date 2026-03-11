@@ -3,7 +3,7 @@ import fs from 'fs';
 import { timeout, TimeoutError } from 'promise-timeout';
 import checkTypes from 'check-types';
 import logger, { verboseIsImplied } from './logger';
-import spawn, { DEFAULT_ARG } from './spawn';
+import spawn, { DEFAULT_ARG, PACT_NODE_NO_VALUE } from './spawn';
 import pactStandalone from './pact-standalone';
 import { PublisherOptions } from './types';
 
@@ -110,9 +110,21 @@ export class Publisher {
 
     return timeout(
       new Promise<string[]>((resolve, reject) => {
+        const processedOptions = {
+          ...this.options,
+          tags:
+            this.options.tags && this.options.tags.length > 0
+              ? this.options.tags.join(',')
+              : undefined,
+        };
+        if (processedOptions.verbose === true) {
+          // @ts-expect-error - needs to be a flag only value
+          processedOptions.verbose = PACT_NODE_NO_VALUE;
+        }
         const instance = spawn.spawnBinary(
-          pactStandalone.brokerFullPath,
-          [{ cliVerb: 'publish' }, this.options],
+          pactStandalone.pactFullPath,
+          // TODO: Remove the logLevel arg and add to cli options
+          [{ cliVerb: ['broker', 'publish'] }, processedOptions],
           this.__argMapping
         );
         const output: Array<string | Buffer> = [];

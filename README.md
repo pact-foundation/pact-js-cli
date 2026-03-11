@@ -24,9 +24,6 @@
       - [Mock Server Events](#mock-server-events)
     - [Stub Servers](#stub-servers)
       - [Create Stub Server](#create-stub-server)
-    - [Message Pacts](#message-pacts)
-      - [Create Message Pacts](#create-message-pacts)
-        - [Example](#example)
   - [Windows Issues](#windows-issues)
     - [Enable Long Paths](#enable-long-paths)
   - [Contributing](#contributing)
@@ -37,7 +34,7 @@
 
 ## Pact CLI Tools
 
-This package wraps the [Pact Standalone Tools](https://github.com/pact-foundation/pact-standalone/releases) so that they are available to node scripts in package.json, and linked binaries in the [standard](https://docs.npmjs.com/files/folders#executables) NPM installation directory (e..g. `./node_modules/.bin`).
+This package wraps the [Pact CLI Tools](https://github.com/pact-foundation/pact-cli/releases) so that they are available to node scripts in package.json, and linked binaries in the [standard](https://docs.npmjs.com/files/folders#executables) NPM installation directory (e..g. `./node_modules/.bin`).
 
 For example:
 
@@ -66,16 +63,12 @@ The verification between the latest version of Banana Service (1.0.0) and versio
 
 The following are the binaries currently made available:
 
-- `pact-broker`
 - `pact` (top level cli)
+- `pact-broker`
 - `pact-mock-server`
 - `pact-verifier`
 - `pact-stub-server`
 - `pact-plugin`
-- `pact-mock-service` (legacy)
-- `pact-stub-service` (legacy)
-- `pact-message` (legacy)
-- `pact-provider-verifier` (legacy)
 
 ## Pact-CLI API
 
@@ -87,18 +80,7 @@ A wrapper for the [Pact](http://pact.io) [CLI Tools](https://github.com/pact-fou
 
 ### Do Not Track
 
-In order to get better statistics as to who is using Pact, we have an anonymous tracking event that triggers when Pact installs for the first time. To respect your privacy, anyone can turn it off by simply adding a 'do not track' flag within their package.json file:
-
-```json
-{
- "name": "some-project",
- ...
- "config": {
-  "pact_do_not_track": true
- },
- ...
-}
-```
+In order to get better statistics as to who is using Pact, we have an anonymous tracking event that triggers when Pact installs for the first time. To respect your privacy, anyone can turn it off by simply adding a 'PACT_DO_NOT_TRACK' environment variable in their shell
 
 ## Which Library/Package should I use?
 
@@ -367,44 +349,6 @@ var server = pact.createStub({
 | sslkey    | false     | string  | Path a custom key and self-signed SSL cert key file, 'ssl' option must be set to true to use this option false. Defaults to none     |
 | cors      | false     | boolean | Allow CORS OPTION requests to be accepted, defaults to 'false'                                                                       |
 | timeout               | false     | number                             | How long to wait for the stub server to start up (in milliseconds). Defaults to 30000 (30 seconds)                                                      |
-
-### Message Pacts
-
-#### Create Message Pacts
-
-```js
-var pact = require('@pact-foundation/pact-cli');
-var message = pact.createMessage({
- ...
-});
-```
-
-**Options**:
-
-| Parameter           | Required? | Type                               | Description                                                                                       |
-| ------------------- | --------- | ---------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `dir`               | true      | string                             | Directory to write the pact contracts relative to the current working directory, defaults to none |
-| `consumer`          | true      | string                             | The name of the consumer to be written to the pact contracts, defaults to none                    |
-| `provider`          | true      | string                             | The name of the provider to be written to the pact contracts, defaults to none                    |
-| `pactFileWriteMode` | false     | `"overwrite" | "update" | "merge"` | Control how the pact file is created. Defaults to "update"                                        |
-
-##### Example
-
-```js
-const messageFactory = messageFactory({
- consumer: "consumer",
- provider: "provider",
- dir: dirname(`${__filename}/pacts`),
- content: `{
-  "description": "a test mesage",
-  "content": {
-   "name": "Mary"
-  }
- }`
-});
-
-messageFactory.createMessage();
-```
 
 
 ## Windows Issues

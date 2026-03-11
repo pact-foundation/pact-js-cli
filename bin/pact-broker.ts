@@ -2,9 +2,10 @@
 
 import { spawnSync, standalone } from '../src/pact-standalone';
 
-const { error, status } = spawnSync(
-  standalone().brokerFullPath,
-  process.argv.slice(2)
-);
+const brokerArgs = process.argv.slice(2);
+const { error, status } = spawnSync(standalone().pactFullPath, [
+  'broker',
+  ...brokerArgs,
+]);
 if (error) throw error;
 process.exit(status as number);
