@@ -251,9 +251,9 @@ export abstract class AbstractService extends events.EventEmitter {
 
   // Subclass responsible for spawning the process
   protected spawnBinary(): ChildProcess {
-    if (this.options.cors){
-      // @ts-ignore
-      this.options.cors = PACT_NODE_NO_VALUE
+    if (this.options.cors) {
+      // @ts-expect-error - needs to be a flag only value
+      this.options.cors = PACT_NODE_NO_VALUE;
     }
     return spawn.spawnBinary(
       this.__serviceCommand,

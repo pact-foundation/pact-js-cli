@@ -18,19 +18,22 @@ export class Stub extends AbstractService {
 
     checkTypes.assert.not.emptyArray(options.pactUrls);
 
-    super(pact.pactFullPath, options, {
-      pactUrls: '--file',
-      port: '--port',
-      // host: '--host',
-      // log: '--log',
-      logLevel: '--log-level',
-      // ssl: '--ssl',
-      // sslcert: '--sslcert',
-      // sslkey: '--sslkey',
-      cors: '--cors',
-    },
-    { cliVerb: 'stub' }
-  );
+    super(
+      pact.pactFullPath,
+      options,
+      {
+        pactUrls: '--file',
+        port: '--port',
+        // host: '--host',
+        // log: '--log',
+        logLevel: '--log-level',
+        // ssl: '--ssl',
+        // sslcert: '--sslcert',
+        // sslkey: '--sslkey',
+        cors: '--cors',
+      },
+      { cliVerb: 'stub' }
+    );
     this.options = options;
   }
 }

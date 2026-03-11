@@ -21,14 +21,15 @@ all: libs
 		export node_os=$$node_os; \
 		export node_arch=$$node_arch; \
 		export node_pkg=$(bin)-$$node_os-$$node_arch; \
-		export standalone_package=standalone/pact-$$node_os-$$node_arch; \
 		if [ "$$node_os" = "windows" ]; then \
 			export node_os="win32"; \
+			export bin_path=".exe"; \
 		fi; \
+		export standalone_package=standalone/pact-$$node_os-$$node_arch$$bin_path; \
 		echo "Building for $$node_os-$$node_arch"; \
 		echo "Building $$node_pkg"; \
 		mkdir -p "$$node_pkg/standalone"; \
-		mv "$$standalone_package" "$$node_pkg/standalone/pact"; \
+		mv "$$standalone_package" "$$node_pkg/standalone/pact$$bin_path"; \
 		envsubst < package.json.tmpl > "$$node_pkg/package.json"; \
 		(cd $$node_pkg && npm publish --access public --dry-run; exit 0)\
 	done

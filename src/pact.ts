@@ -14,7 +14,6 @@ import { AbstractService } from './service';
 import { CanDeployOptions, CanDeployResponse } from './can-deploy/types';
 
 export class Pact {
-
   private __stubs: Stub[] = [];
 
   constructor() {

@@ -112,10 +112,13 @@ export class Publisher {
       new Promise<string[]>((resolve, reject) => {
         const processedOptions = {
           ...this.options,
-          tags: this.options.tags && this.options.tags.length > 0 ? this.options.tags.join(',') : undefined,
+          tags:
+            this.options.tags && this.options.tags.length > 0
+              ? this.options.tags.join(',')
+              : undefined,
         };
         if (processedOptions.verbose === true) {
-          // @ts-ignore
+          // @ts-expect-error - needs to be a flag only value
           processedOptions.verbose = PACT_NODE_NO_VALUE;
         }
         const instance = spawn.spawnBinary(

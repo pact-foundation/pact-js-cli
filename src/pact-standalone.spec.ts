@@ -52,7 +52,7 @@ describe('Pact Standalone', function forMocha() {
     tests.forEach(([platform, arch]) => {
       describe(`${platform} ${arch}`, () => {
         beforeEach(() => {
-          pact = standalone(platform, arch);
+          pact = standalone(platform);
         });
 
         // it('broker relative path', () => {

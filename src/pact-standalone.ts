@@ -68,16 +68,13 @@ export interface PactStandalone {
 }
 
 export const standalone = (
-  platform: string = process.platform,
-  arch: string = process.arch
+  platform: string = process.platform
 ): PactStandalone => {
   const exeName = (name: string): string =>
     `${name}${pactEnvironment.isWindows(platform) ? '.exe' : ''}`;
   const pact = exeName('pact');
 
-  const basePath = path.join(
-    'standalone'
-  );
+  const basePath = path.join('standalone');
 
   const exePath = getExePath();
   return {

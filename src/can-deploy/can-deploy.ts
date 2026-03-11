@@ -99,7 +99,7 @@ export class CanDeploy {
         const instance = spawn.spawnBinary(
           pactStandalone.pactFullPath,
           [
-            { cliVerb: ['broker','can-i-deploy'] },
+            { cliVerb: ['broker', 'can-i-deploy'] },
             ...CanDeploy.convertForSpawnBinary(this.options),
           ],
           this.__argMapping
