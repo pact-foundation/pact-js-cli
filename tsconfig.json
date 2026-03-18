@@ -1,7 +1,7 @@
 {
   "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "mocha"],
+    "types": ["node"],
     "module": "commonjs",
     "removeComments": true,
     "sourceMap": true,
