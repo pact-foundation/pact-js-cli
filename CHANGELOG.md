@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [18.0.0](https://github.com/pact-foundation/pact-js-cli/compare/v16.1.7...v18.0.0) (2026-03-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate to pact-cli rust rewrite (#133)
+
+### Features
+
+* migrate to pact-cli rust rewrite ([#133](https://github.com/pact-foundation/pact-js-cli/issues/133)) ([7639c55](https://github.com/pact-foundation/pact-js-cli/commit/7639c557d1e85d772e6269f351c38dc26b206c1f))
+
+
+### Fixes and Improvements
+
+* **deps:** update to rimraf v6 ([144bea9](https://github.com/pact-foundation/pact-js-cli/commit/144bea93c03854edaaf99b5f310aa33be1cacd30))
+
 ## [16.1.7](https://github.com/pact-foundation/pact-js-cli/compare/v16.1.6...v16.1.7) (2026-03-09)
 
 
