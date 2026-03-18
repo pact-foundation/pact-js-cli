@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@pact-foundation/pact-js-prettier-config": "^1.0.0",
-    "@tsconfig/node16": "^16.1.0",
+    "@tsconfig/node18": "^18.2.0",
     "@types/node": "^22.0.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
