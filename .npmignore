@@ -48,7 +48,6 @@ node_modules
 *.iml
 .eslintignore
 .eslintrc
-.mocharc.js
 .prettierignore
 jest.config.js
 appveyor.yml
@@ -94,3 +93,6 @@ tsconfig.json
 .synk
 .gitattributes
 RELEASING.md
+renovate.json
+standalone/
+*.ts
