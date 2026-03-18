@@ -43,7 +43,7 @@ test/**/**.d.ts
 bin/**/**.d.ts
 **/*.d.ts
 src/**/**.js
-test/**/**.js
+# test/**/**.js
 bin/**/**.js
 # *.js
 # !test.js
