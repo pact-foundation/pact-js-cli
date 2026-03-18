@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "import", "mocha", "chai-friendly"],
+  "plugins": ["@typescript-eslint", "import"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -38,10 +38,6 @@
   "overrides": [
     {
       "files": ["**/*.spec.ts", "test/**/*.ts"],
-      "env": {
-        "mocha": true
-      },
-      "extends": ["plugin:mocha/recommended"],
       "rules": {
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/dot-notation": [
@@ -59,8 +55,6 @@
         "@typescript-eslint/no-var-requires": "off",
         "global-require": "off",
         "import/no-dynamic-require": "off",
-        "mocha/no-mocha-arrows": "off",
-        "mocha/no-setup-in-describe": "off",
         "no-console": "off",
         "no-new": "off"
       }

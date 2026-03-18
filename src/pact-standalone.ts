@@ -1,6 +1,5 @@
 import * as path from 'node:path';
 import * as childProcess from 'node:child_process';
-// import { getBinaryEntry } from './install';
 import pactEnvironment from './pact-environment';
 
 /**

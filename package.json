@@ -90,7 +90,7 @@
     "clean-libs": "rimraf --glob standalone/pact-*",
     "build": "tsc --project tsconfig.build.json",
     "release": "commit-and-tag-version",
-    "test": "node test/smoke..spec.js",
+    "test": "node test/smoke.spec.js",
     "format:base": "prettier --parser typescript",
     "format:check": "npm run format:base -- --list-different \"{src,standalone,bin,test}/**/*.{ts,tsx}\"",
     "format:fix": "npm run format:base -- --write \"{src,standalone,bin,test}/**/*.{ts,tsx}\"",
