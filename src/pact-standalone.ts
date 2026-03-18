@@ -40,9 +40,9 @@ export function spawnSync(
   command: string,
   args: string[]
 ): { error?: Error; status?: number } {
-  // Runtime check for Windows .bat files - require shell: true for proper execution
-  const isWindowsBatFile =
-    pactEnvironment.isWindows() && command.endsWith('.bat');
+  // Runtime check for Windows .exe files - require shell: true for proper execution
+  const isWindowsExeFile =
+    pactEnvironment.isWindows() && command.endsWith('.exe');
 
   if (pactEnvironment.isWindows()) {
     // eslint-disable-next-line no-param-reassign
@@ -51,7 +51,7 @@ export function spawnSync(
 
   const spawnOptions: childProcess.SpawnSyncOptions = {
     stdio: 'inherit',
-    ...(isWindowsBatFile && { shell: true }),
+    ...(isWindowsExeFile && { shell: true }),
   };
 
   const result = childProcess.spawnSync(command, args, spawnOptions);
