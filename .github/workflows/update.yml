@@ -1,10 +1,22 @@
-name: Update Pact Standalone
+name: Update Pact CLI
 
 on:
   repository_dispatch:
     types:
-      - pact-standalone-released
+      - pact-cli-released
 
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Type of release'
+        required: true
+        type: choice
+        options:
+          - pact-cli-released
+      version:
+        description: 'Version to update to'
+        required: true
+        type: string
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -16,6 +28,6 @@ jobs:
         git config --global user.name "${GITHUB_ACTOR}"
         git config pull.ff only
 
-    - run: script/create-pr-to-update-pact-standalone.sh ${{ github.event.client_payload.version }}
+    - run: script/create-pr-to-update-pact-cli.sh ${{ github.event.client_payload.version || github.event.inputs.version }}
       env:
         GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
