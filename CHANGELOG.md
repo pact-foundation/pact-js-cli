@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [18.1.1](https://github.com/pact-foundation/pact-js-cli/compare/v18.1.0...v18.1.1) (2026-06-30)
+
+
+### Fixes and Improvements
+
+* **deps:** bump pact-cli to 0.10.4 (new binary naming) ([3cae7a5](https://github.com/pact-foundation/pact-js-cli/commit/3cae7a572a0a8c51c2d7d7ab0c71613129f7ae67))
+
 ## [18.1.0](https://github.com/pact-foundation/pact-js-cli/compare/v18.0.0...v18.1.0) (2026-06-02)
 
 
