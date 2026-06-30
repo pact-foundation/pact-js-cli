@@ -2,7 +2,7 @@ SHELL:=/bin/bash
 export bin=@pact-foundation/pact-cli
 export pkg_version?=$(shell cat package.json | jq -r .version)
 supported_platforms = "linux-x64" "linux-arm64" "darwin-x64" "darwin-arm64" "windows-x64" "windows-arm64"
-export PACT_CLI_VERSION=$(shell grep "PACT_CLI_VERSION = '" src/install.ts | grep -E -o "'(.*)'" | cut -d"'" -f2)
+export STANDALONE_VERSION=$(shell grep "PACT_STANDALONE_VERSION = '" src/install.ts | grep -E -o "'(.*)'" | cut -d"'" -f2)
 
 # https://github.com/npm/npm/issues/17722
 # https://github.com/npm/cli/issues/4828
@@ -25,7 +25,7 @@ all: libs
 			export node_os="win32"; \
 			export bin_path=".exe"; \
 		fi; \
-		export standalone_package=standalone/pact-$$node_os-$$node_arch/pact$$bin_path; \
+		export standalone_package=standalone/pact-$$node_os-$$node_arch$$bin_path; \
 		echo "Building for $$node_os-$$node_arch"; \
 		echo "Building $$node_pkg"; \
 		mkdir -p "$$node_pkg/standalone"; \
@@ -79,4 +79,4 @@ link:
 
 
 vers:
-	@echo $(PACT_CLI_VERSION)
+	@echo $(STANDALONE_VERSION)

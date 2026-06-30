@@ -7,7 +7,7 @@ LIB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")"; pwd)" # Figure out where the scr
 
 require_binary curl
 require_binary unzip
-require_env_var PACT_CLI_VERSION
+require_env_var STANDALONE_VERSION
 
 BASEURL=https://github.com/pact-foundation/pact-cli/releases/download
 STANDALONE_DIR="${LIB_DIR}/../../standalone"
@@ -24,41 +24,37 @@ function download_standalone {
   fi
   STANDALONE_FILENAME="$2"
 
-  URL="${BASEURL}/v${PACT_CLI_VERSION}/${1}"
+  URL="${BASEURL}/v${STANDALONE_VERSION}/${1}"
   DOWNLOAD_LOCATION="$STANDALONE_DIR/${STANDALONE_FILENAME}"
 
 
-  log "Downloading standalone version $PACT_CLI_VERSION to $DOWNLOAD_LOCATION"
+  log "Downloading standalone version $STANDALONE_VERSION to $DOWNLOAD_LOCATION"
   download_to "$URL" "$DOWNLOAD_LOCATION"
-  if [ "${STANDALONE_FILENAME%zip}" != "${STANDALONE_FILENAME}" ]; then
-    unzip -qo "$DOWNLOAD_LOCATION" -d "${DOWNLOAD_LOCATION%.*}"
-    rm "${DOWNLOAD_LOCATION}"
-  else
-    mkdir -p "${DOWNLOAD_LOCATION%.tar.xz}"
-    tar -xf "$DOWNLOAD_LOCATION" -C "${DOWNLOAD_LOCATION%.tar.xz}" --strip-components=1
-    rm "${DOWNLOAD_LOCATION}"
+  # Set executable permission if not a Windows binary
+  if [[ ! "$STANDALONE_FILENAME" =~ windows ]]; then
+    chmod +x "$DOWNLOAD_LOCATION"
   fi
 }
 
-log "Downloading Pact CLI standalone ${PACT_CLI_VERSION}"
+log "Downloading Pact CLI standalone ${STANDALONE_VERSION}"
 
-if [[ $(find "${STANDALONE_DIR}" -name "*${PACT_CLI_VERSION}") ]]; then
+if [[ $(find "${STANDALONE_DIR}" -name "*${STANDALONE_VERSION}") ]]; then
   log "Skipping download of Pact CLI standalone, as it exists"
   exit 0
 fi
 
-download_standalone "pact-x86_64-pc-windows-msvc.zip"           "pact-win32-x64.zip"
-# download_standalone "pact-aarch64-pc-windows-msvc.zip"           "pact-win32-arm64.zip"
+download_standalone "pact-x86_64-windows-msvc.exe"           "pact-win32-x64.exe"
+download_standalone "pact-aarch64-windows-msvc.exe"           "pact-win32-arm64.exe"
 
 if [[ ${RUNNER_OS:-} == 'Windows' ]]; then
   ONLY_DOWNLOAD_PACT_FOR_WINDOWS=true
 fi
 
 if [ -z "${ONLY_DOWNLOAD_PACT_FOR_WINDOWS:-}" ]; then
-  download_standalone "pact-x86_64-apple-darwin.tar.xz"           "pact-darwin-x64.tar.xz"
-  download_standalone "pact-aarch64-apple-darwin.tar.xz"           "pact-darwin-arm64.tar.xz"
-  download_standalone "pact-x86_64-unknown-linux-musl.tar.xz"           "pact-linux-x64.tar.xz"
-  download_standalone "pact-aarch64-unknown-linux-musl.tar.xz"           "pact-linux-arm64.tar.xz"
+  download_standalone "pact-x86_64-macos"           "pact-darwin-x64"
+  download_standalone "pact-aarch64-macos"           "pact-darwin-arm64"
+  download_standalone "pact-x86_64-linux-musl"           "pact-linux-x64"
+  download_standalone "pact-aarch64-linux-musl"           "pact-linux-arm64"
 fi
 
 # Write readme in the ffi folder
