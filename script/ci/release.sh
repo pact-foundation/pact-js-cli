@@ -25,10 +25,6 @@ echo "$RELEASE_NOTES"
 NEXT_VERSION=$(npx -y commit-and-tag-version --dry-run | grep 'tagging release' | grep -E -o "([0-9\.]+(-[a-z\.0-9]+)?)")
 NEXT_TAG="v${NEXT_VERSION}"
 
-if [[ ${CI:-} == 'true' ]]; then
-  require_env_var NODE_AUTH_TOKEN
-fi
-
 if [[ ${RUNNER_OS:-} == 'Windows' ]]; then
   ONLY_DOWNLOAD_PACT_FOR_WINDOWS=true
 fi
