@@ -18,8 +18,6 @@ if [[ ${DRY_RUN:-} == 'true' ]]; then
   make dry_run
   npm publish --access-public --dry-run
  else
-  echo "--> Preparing npmrc file"
-  "$SCRIPT_DIR"/create_npmrc_file.sh
   # Publish os/arch specific npm packages
   make publish
   npm publish --access public --tag latest
