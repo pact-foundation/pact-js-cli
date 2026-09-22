@@ -2,7 +2,7 @@ version: '3'
 
 services:
   postgres:
-    image: postgres
+    image: postgres@sha256:86c951e05bf56c93d95d397747fb8820ac76cc3bedb78f43abd83eedbe3666ae
     ports:
       - "5432"
     environment:
@@ -11,7 +11,7 @@ services:
       POSTGRES_DB: postgres
 
   broker_app:
-    image: dius/pact-broker
+    image: dius/pact-broker@sha256:16b7fce5e61f91435e06163add2a63662a69d74ae124bba8aadd6117f6a67e51
     ports:
       - "80"
     links:
