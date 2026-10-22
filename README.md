@@ -2,7 +2,7 @@
 
 > [!WARNING]
 > This repository is archived and no longer maintained.
-> The [`pact-cli`](https://www.npmjs.com/package/pact-cli) NPM package is now released from the CLI's own repository: [pact-foundation/pact-cli](https://github.com/pact-foundation/pact-cli).
+> The [`@pact-foundation/pact-cli`](https://www.npmjs.com/package/@pact-foundation/pact-cli) NPM package is now released from the CLI's own repository: [pact-foundation/pact-cli](https://github.com/pact-foundation/pact-cli).
 > Please open issues and pull requests there.
 
 <!-- TOC -->
